@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Golden Accounting Berlin — Buchhaltung, Büroservice &amp; Bürgerservice | Melisa Aylanc</title>
+<meta name="description" content="Golden Accounting in Berlin-Neukölln: Buchhaltung, Lohnbuchhaltung, Büroservice, Bürgerservice, Steuererklärungen, Übersetzungen und Anträge — persönlich betreut von Melisa Aylanc auf Deutsch, Türkisch und Englisch.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Golden Accounting – Melisa Aylanc">
+<meta name="theme-color" content="#15120f">
+<link rel="canonical" href="https://www.golden-accounting.de/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Golden Accounting">
+<meta property="og:title" content="Golden Accounting Berlin — Buchhaltung, Büroservice &amp; Bürgerservice">
+<meta property="og:description" content="Buchhaltung, Lohnbuchhaltung, Büroservice, Bürgerservice, Steuererklärungen, Übersetzungen und Anträge in Berlin — persönlich, mehrsprachig, zuverlässig.">
+<meta property="og:url" content="https://www.golden-accounting.de/">
+<meta property="og:locale" content="de_DE">
+
+<!-- Favicon (inline, no external file needed) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23c9a668'/%3E%3Cline x1='32' y1='11' x2='32' y2='53' stroke='%2315120f' stroke-width='2'/%3E%3Ctext x='8' y='30' font-family='Georgia,serif' font-size='25' fill='%2315120f'%3EG%3C/text%3E%3Ctext x='34' y='56' font-family='Georgia,serif' font-size='25' fill='%2315120f'%3EA%3C/text%3E%3C/svg%3E">
+
+<!-- Google Fonts (only external dependency) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Cormorant+SC:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Golden Accounting",
+  "alternateName": "Golden Accounting – Inh. Melisa Aylanc",
+  "url": "https://www.golden-accounting.de/",
+  "telephone": "+493039714279",
+  "email": "Info@Golden-Accounting.de",
+  "vatID": "DE410383717",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ottokarstraße 7",
+    "postalCode": "12105",
+    "addressLocality": "Berlin",
+    "addressCountry": "DE"
+  },
+  "areaServed": "Berlin",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ],
+  "founder": { "@type": "Person", "name": "Melisa Aylanc" },
+  "knowsLanguage": ["de","tr","en"],
+  "priceRange": "€€",
+  "sameAs": []
+}
+</script>
+
+<style>
+/* ====================== TOKENS ====================== */
+:root{
+  --black:#15120f;
+  --ink:#2b2418;
+  --white:#fcfbf8;
+  --cream:#f3eee2;
+  --gold:#c9a668;
+  --gold-soft:#dcc28f;
+  --gold-deep:#9c7536;
+  --gold-pale:#efe4cb;
+  --line-light: rgba(21,18,15,.13);
+  --line-dark: rgba(252,251,248,.16);
+  --off-white:#ece5d6;
+  --shadow-lg: 0 30px 60px -28px rgba(21,18,15,.45);
+  --shadow-sm: 0 10px 24px -14px rgba(21,18,15,.3);
+  --font-display:'Cormorant Garamond', serif;
+  --font-eyebrow:'Cormorant SC', serif;
+  --font-body:'Inter', system-ui, -apple-system, sans-serif;
+  --header-h: 84px;
+}
+
+/* ====================== RESET ====================== */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+button{font:inherit;background:none;border:none;cursor:pointer;color:inherit;}
+h1,h2,h3,p{margin:0;}
+.section{scroll-margin-top:var(--header-h);}
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px;border-radius:2px;}
+
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--gold);color:var(--black);
+  padding:10px 18px;z-index:200;font-weight:600;
+}
+.skip-link:focus{left:12px;top:12px;}
+
+.container{width:100%;max-width:1180px;margin-inline:auto;padding-inline:28px;}
+
+.eyebrow{
+  font-family:var(--font-eyebrow);
+  font-weight:600;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  font-size:.82rem;
+  color:var(--gold-deep);
+  display:inline-block;
+}
+.section-dark .eyebrow{color:var(--gold);}
+
+.section-head{max-width:680px;margin-bottom:56px;}
+.section-head.center{margin-inline:auto;text-align:center;}
+.section-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(2rem,3.4vw,2.7rem);
+  line-height:1.15;
+  margin-top:.5em;
+  letter-spacing:.005em;
+}
+.section-intro{
+  margin-top:18px;
+  font-size:1.05rem;
+  line-height:1.75;
+  color:inherit;
+  opacity:.82;
+}
+
+.accent{color:var(--gold-deep);font-style:italic;}
+.section-dark .accent{color:var(--gold);}
+
+/* ====================== BUTTONS ====================== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 34px;border-radius:999px;font-weight:600;font-size:.98rem;
+  letter-spacing:.02em;transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  white-space:nowrap;
+}
+.btn-gold{background:var(--gold);color:var(--black);box-shadow:var(--shadow-sm);}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.btn-outline{border:1.5px solid currentColor;background:transparent;color:inherit;}
+.btn-outline:hover{background:var(--gold);border-color:var(--gold);color:var(--black);transform:translateY(-2px);}
+.btn-block{width:100%;}
+
+/* ====================== HEADER ====================== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--header-h);
+  display:flex;align-items:center;
+  background:rgba(21,18,15,.92);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-dark);
+  transition:box-shadow .3s ease, background .3s ease;
+}
+.site-header.is-scrolled{box-shadow:0 12px 30px -18px rgba(0,0,0,.6);}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+
+.brand{display:flex;align-items:center;gap:14px;}
+.brand-mark{
+  width:46px;height:46px;flex:none;background:var(--gold);
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+  border:1.5px solid var(--black);position:relative;overflow:hidden;
+  font-family:var(--font-display);font-weight:500;font-size:1.45rem;line-height:1;color:var(--black);
+}
+.brand-mark .bar{grid-column:1 / 3;grid-row:1 / 3;justify-self:center;align-self:stretch;width:1px;background:var(--black);}
+.brand-mark .gL{grid-column:1;grid-row:1;align-self:end;justify-self:center;position:relative;z-index:1;}
+.brand-mark .gR{grid-column:2;grid-row:2;align-self:end;justify-self:center;position:relative;z-index:1;}
+.brand-text{display:flex;flex-direction:column;line-height:1.25;}
+.brand-name{
+  font-family:var(--font-eyebrow);font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;font-size:.92rem;color:var(--white);
+}
+.brand-sub{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-top:2px;}
+
+.nav-menu{display:flex;align-items:center;gap:34px;}
+.nav-link{
+  font-size:.92rem;color:var(--off-white);opacity:.85;position:relative;padding:6px 0;
+  transition:opacity .2s ease, color .2s ease;
+}
+.nav-link::after{
+  content:"";position:absolute;left:50%;bottom:-2px;width:0;height:1px;background:var(--gold);
+  transition:width .25s ease, left .25s ease;
+}
+.nav-link:hover, .nav-link.is-active{opacity:1;color:var(--white);}
+.nav-link:hover::after, .nav-link.is-active::after{width:100%;left:0;}
+.nav-cta{
+  border:1.5px solid var(--gold);border-radius:999px;padding:9px 22px;color:var(--gold);
+}
+.nav-cta::after{display:none;}
+.nav-cta:hover{background:var(--gold);color:var(--black);}
+
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:30px;height:26px;z-index:110;}
+.nav-toggle span{display:block;width:100%;height:1.5px;background:var(--gold);transition:transform .3s ease, opacity .3s ease;}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+/* ====================== HERO ====================== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:var(--black);color:var(--off-white);overflow:hidden;
+  padding-top:var(--header-h);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(to bottom, rgba(201,166,104,.07) 0 1px, transparent 1px 46px);
+  pointer-events:none;
+}
+.hero::after{
+  content:"";position:absolute;right:-12%;top:8%;width:60vw;height:60vw;max-width:760px;max-height:760px;
+  background:radial-gradient(circle, rgba(201,166,104,.14), transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;width:100%;
+}
+.hero-eyebrow{margin-bottom:22px;}
+.hero h1{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(2.4rem,5.4vw,4.1rem);line-height:1.08;letter-spacing:.005em;color:var(--white);
+}
+.hero-sub{margin-top:26px;max-width:540px;font-size:1.08rem;line-height:1.75;opacity:.84;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px;}
+.hero-meta{display:flex;gap:28px;margin-top:46px;flex-wrap:wrap;}
+.hero-meta-item{font-size:.82rem;letter-spacing:.04em;opacity:.7;display:flex;align-items:center;gap:9px;}
+.hero-meta-item svg{width:15px;height:15px;color:var(--gold);flex:none;}
+
+.hero-seal-wrap{display:flex;justify-content:center;align-items:center;position:relative;}
+
+.scroll-cue{
+  position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;opacity:.55;z-index:2;
+}
+.scroll-cue svg{width:16px;height:22px;animation:bob 2.4s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+
+/* ====================== SEAL (signature element) ====================== */
+.seal{
+  position:relative;width:200px;height:200px;border-radius:50%;
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+}
+.seal::before{
+  content:"";position:absolute;inset:9px;border-radius:50%;
+  background:repeating-conic-gradient(var(--gold) 0deg 2.2deg, transparent 2.2deg 10deg);
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - 7px), #000 calc(100% - 7px) calc(100% - 2px), transparent calc(100% - 2px));
+          mask:radial-gradient(farthest-side, transparent calc(100% - 7px), #000 calc(100% - 7px) calc(100% - 2px), transparent calc(100% - 2px));
+  animation:spin 50s linear infinite;
+}
+.seal::after{content:"";position:absolute;inset:30px;border-radius:50%;border:1px solid var(--gold);opacity:.55;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.seal-arc{position:absolute;inset:0;width:100%;height:100%;}
+.seal-arc text{
+  font-family:var(--font-eyebrow);font-size:9.6px;letter-spacing:2.4px;fill:var(--gold);
+}
+.seal-core{position:relative;z-index:2;display:flex;align-items:center;gap:10px;}
+.seal-letter{font-family:var(--font-display);font-size:1.5rem;color:var(--gold);}
+.seal-bar{width:1px;height:22px;background:var(--gold);opacity:.6;}
+.seal-sub{position:relative;z-index:2;margin-top:6px;font-family:var(--font-eyebrow);font-size:.62rem;letter-spacing:.26em;color:var(--gold);opacity:.8;}
+
+.seal.seal-mini{width:64px;height:64px;}
+.seal.seal-mini::before{display:none;}
+.seal.seal-mini::after{inset:9px;}
+.seal.seal-mini .seal-arc{display:none;}
+.seal.seal-mini .seal-letter{font-size:.85rem;}
+.seal.seal-mini .seal-bar{height:13px;}
+.seal.seal-mini .seal-sub{display:none;}
+
+/* ====================== TRUST STRIP ====================== */
+.trust-strip{background:var(--cream);border-bottom:1px solid var(--line-light);padding:26px 0;}
+.trust-row{display:flex;justify-content:center;align-items:center;gap:0;flex-wrap:wrap;}
+.trust-item{
+  display:flex;align-items:center;gap:10px;font-size:.86rem;letter-spacing:.02em;
+  padding:6px 30px;color:var(--ink);opacity:.85;
+}
+.trust-item svg{width:16px;height:16px;color:var(--gold-deep);flex:none;}
+.trust-divider{width:1px;height:18px;background:var(--line-light);}
+
+/* ====================== GENERIC SECTION SKINS ====================== */
+.section-light{background:var(--white);color:var(--ink);}
+.section-cream{background:var(--cream);color:var(--ink);}
+.section-dark{background:var(--black);color:var(--off-white);}
+.section{padding:118px 0;}
+
+/* ====================== LEISTUNGEN ====================== */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;}
+.service-card{
+  position:relative;background:var(--white);border:1px solid var(--line-light);
+  padding:38px 32px 34px;overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.service-card::before{
+  content:"";position:absolute;top:0;right:0;width:0;height:0;
+  border-style:solid;border-width:0 26px 26px 0;border-color:transparent var(--gold-pale) transparent transparent;
+  transition:border-color .3s ease;
+}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--gold-soft);}
+.service-card:hover::before{border-color:transparent var(--gold) transparent transparent;}
+.service-icon{
+  width:46px;height:46px;border-radius:50%;background:var(--gold-pale);
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+}
+.service-icon svg{width:22px;height:22px;color:var(--gold-deep);}
+.service-card h3{font-family:var(--font-display);font-weight:600;font-size:1.32rem;margin-bottom:10px;}
+.service-card p{font-size:.95rem;line-height:1.7;opacity:.78;}
+
+/* ====================== WARUM WIR (ledger rows) ====================== */
+.ledger{border-top:1px solid var(--line-light);}
+.ledger-row{
+  display:grid;grid-template-columns:260px 1fr;gap:40px;padding:30px 0;
+  border-bottom:1px solid var(--line-light);align-items:start;
+}
+.ledger-row h3{font-family:var(--font-display);font-weight:600;font-size:1.3rem;}
+.ledger-row p{font-size:.97rem;line-height:1.75;opacity:.8;}
+
+/* ====================== BEWERTUNGEN ====================== */
+.rating-summary{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px;flex-wrap:wrap;}
+.stars{display:flex;gap:4px;}
+.stars svg{width:20px;height:20px;color:var(--gold);}
+.rating-summary span{font-size:.88rem;opacity:.7;letter-spacing:.02em;}
+
+.reviews-wrap{position:relative;margin-top:54px;}
+.reviews-track{
+  display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;
+  scrollbar-width:none;
+}
+.reviews-track::-webkit-scrollbar{display:none;}
+.review-card{
+  scroll-snap-align:start;flex:0 0 min(360px,82vw);
+  background:rgba(252,251,248,.04);border:1px solid var(--line-dark);
+  padding:34px 30px;display:flex;flex-direction:column;gap:18px;
+}
+.review-card .stars svg{width:15px;height:15px;}
+.review-quote{font-family:var(--font-display);font-style:italic;font-size:1.1rem;line-height:1.6;color:var(--white);}
+.review-meta{display:flex;flex-direction:column;gap:2px;margin-top:auto;}
+.review-name{font-weight:600;font-size:.92rem;color:var(--white);}
+.review-role{font-size:.78rem;color:var(--gold);opacity:.85;}
+
+.reviews-controls{display:flex;justify-content:center;gap:14px;margin-top:32px;}
+.review-btn{
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--line-dark);
+  display:flex;align-items:center;justify-content:center;transition:border-color .25s ease, background .25s ease;
+}
+.review-btn:hover{border-color:var(--gold);background:rgba(201,166,104,.12);}
+.review-btn svg{width:16px;height:16px;color:var(--gold);}
+
+/* ====================== STANDORT ====================== */
+.standort-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.standort-block{margin-bottom:30px;}
+.standort-label{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px;display:block;}
+.standort-block p{font-size:1.02rem;line-height:1.7;}
+.status-pill{
+  display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:7px 16px;border-radius:999px;
+  font-size:.8rem;font-weight:600;border:1px solid var(--line-light);
+}
+.status-pill .dot{width:8px;height:8px;border-radius:50%;background:#9a9a9a;}
+.status-pill.status-open .dot{background:#5f8b5a;}
+.status-pill.status-open{border-color:#5f8b5a;color:#3f6a3c;}
+.status-pill.status-closed .dot{background:var(--gold-deep);}
+.map-frame{
+  position:relative;
+  width:100%;
+  min-height:420px;
+  border:1px solid var(--line-light);overflow:hidden;background:var(--white);box-shadow:var(--shadow-sm);
+}
+.map-frame iframe{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  min-height:420px;
+  border:0;display:block;
+}
+
+/* ====================== KONTAKT ====================== */
+.kontakt-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:54px;}
+.kontakt-card{
+  background:rgba(252,251,248,.04);border:1px solid var(--line-dark);
+  padding:46px 38px;display:flex;flex-direction:column;gap:18px;
+}
+.kontakt-icon{width:54px;height:54px;border-radius:50%;background:rgba(201,166,104,.12);display:flex;align-items:center;justify-content:center;}
+.kontakt-icon svg{width:24px;height:24px;color:var(--gold);}
+.kontakt-card h3{font-family:var(--font-display);font-weight:600;font-size:1.6rem;color:var(--white);}
+.kontakt-card p.kontakt-text{font-size:.95rem;opacity:.75;line-height:1.7;}
+.tel-lines{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+.tel-line{
+  font-family:var(--font-display);font-size:1.7rem;font-weight:600;color:var(--white);
+  border-bottom:1px solid var(--line-dark);padding-bottom:10px;transition:color .2s ease, border-color .2s ease;
+}
+.tel-line span{display:block;font-family:var(--font-body);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-bottom:4px;font-weight:600;}
+.tel-line:hover{color:var(--gold);border-color:var(--gold);}
+.kontakt-card .btn{margin-top:6px;}
+
+/* ====================== FOOTER ====================== */
+.site-footer{background:var(--black);color:var(--off-white);border-top:1px solid var(--line-dark);padding:80px 0 0;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid var(--line-dark);}
+.footer-brand .brand{margin-bottom:18px;}
+.footer-brand p{font-size:.9rem;opacity:.65;line-height:1.7;max-width:320px;}
+.footer-heading{font-family:var(--font-eyebrow);letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;color:var(--gold);margin-bottom:18px;display:block;}
+.footer-list{display:flex;flex-direction:column;gap:12px;}
+.footer-list a, .footer-list span{font-size:.92rem;opacity:.8;transition:opacity .2s ease, color .2s ease;}
+.footer-list a:hover{opacity:1;color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;padding:26px 0 36px;font-size:.8rem;opacity:.55;}
+
+/* ====================== FLOATING WHATSAPP ====================== */
+.float-whatsapp{
+  position:fixed;right:24px;bottom:24px;z-index:90;
+  width:58px;height:58px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);
+}
+.float-whatsapp svg{width:26px;height:26px;color:var(--black);}
+.float-whatsapp::before{
+  content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--gold);
+  animation:pulse 2.6s ease-out infinite;
+}
+@keyframes pulse{0%{transform:scale(1);opacity:.7;}100%{transform:scale(1.7);opacity:0;}}
+.float-whatsapp:hover{transform:scale(1.06);}
+
+/* ====================== MODALS ====================== */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(21,18,15,.72);backdrop-filter:blur(3px);
+  display:none;align-items:center;justify-content:center;z-index:200;padding:24px;
+}
+.modal-overlay.is-open{display:flex;}
+.modal{
+  background:var(--white);color:var(--ink);max-width:640px;width:100%;max-height:84vh;overflow-y:auto;
+  padding:46px 42px;position:relative;border-top:3px solid var(--gold);
+}
+.modal h2{font-family:var(--font-display);font-size:1.7rem;margin-bottom:18px;}
+.modal h3{font-family:var(--font-display);font-size:1.15rem;margin:22px 0 8px;}
+.modal p{font-size:.94rem;line-height:1.75;opacity:.85;margin-bottom:6px;}
+.modal-note{font-size:.8rem;opacity:.6;font-style:italic;margin-top:24px;border-top:1px solid var(--line-light);padding-top:16px;}
+.modal-close{
+  position:absolute;top:18px;right:18px;width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--line-light);
+}
+.modal-close svg{width:14px;height:14px;}
+.modal-close:hover{background:var(--gold);border-color:var(--gold);}
+
+/* ====================== REVEAL ANIMATION ====================== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;text-align:left;}
+  .hero-seal-wrap{display:none;}
+  .standort-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .footer-brand{grid-column:1 / -1;}
+  .map-frame{min-height:400px;}
+  .map-frame iframe{min-height:400px;}
+}
+@media (max-width:880px){
+  .nav-menu{
+    position:fixed;top:var(--header-h);left:0;right:0;bottom:0;
+    background:rgba(21,18,15,.98);flex-direction:column;justify-content:flex-start;
+    align-items:flex-start;padding:40px 28px;gap:26px;
+    transform:translateX(100%);transition:transform .35s ease;overflow-y:auto;
+  }
+  .nav-menu.is-open{transform:translateX(0);}
+  .nav-link{font-size:1.15rem;}
+  .nav-toggle{display:flex;}
+  .nav-cta{margin-top:10px;}
+  .brand-sub{display:none;}
+}
+@media (max-width:760px){
+  .section{padding:80px 0;}
+  .section-head{margin-bottom:40px;}
+  .ledger-row{grid-template-columns:1fr;gap:8px;}
+  .kontakt-grid{grid-template-columns:1fr;}
+  .trust-item{padding:6px 16px;}
+  .footer-grid{grid-template-columns:1fr;gap:36px;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  .map-frame{min-height:380px;}
+  .map-frame iframe{min-height:380px;}
+}
+@media (max-width:480px){
+  .hero h1{font-size:clamp(2rem,9vw,2.6rem);}
+  .tel-line{font-size:1.4rem;}
+  .kontakt-card{padding:34px 24px;}
+  .modal{padding:34px 24px;}
+  .map-frame{min-height:350px;}
+  .map-frame iframe{min-height:350px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;transition:none;}
+  .seal::before,.scroll-cue svg,.float-whatsapp::before{animation:none;}
+  *{transition-duration:.01ms !important;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a class="brand" href="#start" aria-label="Golden Accounting – Startseite">
+      <span class="brand-mark"><span class="bar" aria-hidden="true"></span><span class="gL">G</span><span class="gR">A</span></span>
+      <span class="brand-text">
+        <span class="brand-name">Golden Accounting</span>
+        <span class="brand-sub">Buchhaltung · Büroservice · Bürgerservice</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a class="nav-link" data-nav href="#start">Startseite</a></li>
+      <li><a class="nav-link" data-nav href="#leistungen">Leistungen</a></li>
+      <li><a class="nav-link" data-nav href="#warum-wir">Warum wir</a></li>
+      <li><a class="nav-link" data-nav href="#bewertungen">Bewertungen</a></li>
+      <li><a class="nav-link" data-nav href="#standort">Standort</a></li>
+      <li><a class="nav-link nav-cta" data-nav href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero section" id="start">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow hero-eyebrow">Buchhaltung · Büroservice · Bürgerservice</span>
+        <h1>Ihre Zahlen. Ihre Anträge.<br><span class="accent">In guten Händen.</span></h1>
+        <p class="hero-sub">Golden Accounting begleitet Unternehmen, Selbstständige, Freiberufler und Privatkunden in Berlin durch Buchhaltung, Lohnabrechnung, Büroorganisation und Behördenangelegenheiten — persönlich betreut von Melisa Aylanc, auf Deutsch, Türkisch und Englisch.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="tel:+493039714279">Jetzt anrufen</a>
+          <a class="btn btn-outline" href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a>
+        </div>
+        <div class="hero-meta">
+          <span class="hero-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.2A7 7 0 0 1 19 9.8C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+            Ottokarstraße 7, 12105 Berlin
+          </span>
+          <span class="hero-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.9"/></svg>
+            Mo–Fr 9–14 Uhr · Termine nach Vereinbarung
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-seal-wrap" aria-hidden="true">
+        <div class="seal">
+          <svg class="seal-arc" viewBox="0 0 200 200">
+            <defs><path id="sealArcTop" d="M28,108 A72,72 0 1 1 172,108"/></defs>
+            <text><textPath href="#sealArcTop" startOffset="50%" text-anchor="middle">GOLDEN ACCOUNTING</textPath></text>
+          </svg>
+          <div class="seal-core">
+            <span class="seal-letter">G</span><span class="seal-bar"></span><span class="seal-letter">A</span>
+          </div>
+          <span class="seal-sub">Berlin</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#leistungen" class="scroll-cue" aria-label="Zu den Leistungen scrollen">
+      Entdecken
+      <svg viewBox="0 0 16 22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1v18M2 13l6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- ===================== TRUST STRIP ===================== -->
+  <section class="trust-strip">
+    <div class="container trust-row">
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18Z"/></svg>
+        Deutsch · Türkçe · English
+      </span>
+      <span class="trust-divider"></span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11.2A7 7 0 0 1 19 9.8C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+        Ottokarstraße 7 · 12105 Berlin
+      </span>
+      <span class="trust-divider"></span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        Termine nach Vereinbarung
+      </span>
+    </div>
+  </section>
+
+  <!-- ===================== LEISTUNGEN ===================== -->
+  <section class="section section-light" id="leistungen">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Leistungen</span>
+        <h2 class="section-title">Was wir für Sie übernehmen</h2>
+        <p class="section-intro">Von der laufenden Buchhaltung bis zum Antrag beim Amt — sieben Leistungsbereiche, ein Ansprechpartner.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1.2"/><path d="M4 8h16M9 3v18M13 11h5M13 15h5"/></svg>
+          </div>
+          <h3>Buchhaltung</h3>
+          <p>Laufende Finanzbuchhaltung, Belegerfassung und Auswertungen — ordentlich geführt und jederzeit nachvollziehbar für Ihr Unternehmen oder Ihre Selbstständigkeit.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="6" width="17" height="13" rx="1.4"/><path d="M3.5 10h17"/><circle cx="8" cy="14.2" r="1.6"/><path d="M13 14.2h4"/></svg>
+          </div>
+          <h3>Lohnbuchhaltung</h3>
+          <p>Lohn- und Gehaltsabrechnungen für Ihr Team, inklusive Meldungen an Sozialversicherung und Finanzamt — termingerecht und korrekt.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8.5 12 4l8 4.5"/><rect x="4" y="8.5" width="16" height="11" rx="1"/><path d="M9 19.5V14h6v5.5"/></svg>
+          </div>
+          <h3>Büroservice</h3>
+          <p>Korrespondenz, Terminorganisation und allgemeine Büroaufgaben, die Ihnen den Kopf für Ihr eigentliches Geschäft freihalten.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-7h6v7M4 10h16"/></svg>
+          </div>
+          <h3>Bürgerservice</h3>
+          <p>Begleitung und Unterstützung bei Behördengängen, Ämtern und Formalitäten — wir übernehmen die Kommunikation, die sonst Zeit und Nerven kostet.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1.2"/><path d="M9 8h6M9 12h6M9 16h3.5"/></svg>
+          </div>
+          <h3>Steuererklärungen</h3>
+          <p>Private und gewerbliche Steuererklärungen, sorgfältig vorbereitet und fristgerecht eingereicht.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3C9.4 5.6 9.4 18.4 12 21"/></svg>
+          </div>
+          <h3>Übersetzungen</h3>
+          <p>Übersetzung von Dokumenten und Schreiben zwischen Deutsch, Türkisch und Englisch — verständlich für Behörden wie für Sie selbst.</p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="13" height="17" rx="1.2"/><path d="M7.5 9h6M7.5 12.5h6"/><circle cx="18.5" cy="16.5" r="3.4"/><path d="M18.5 14.6v1.9l1.3 1"/></svg>
+          </div>
+          <h3>Anträge</h3>
+          <p>Ausfüllen, Zusammenstellen und Einreichen von Anträgen jeder Art — von der ersten Unterschrift bis zur Bestätigung.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WARUM WIR ===================== -->
+  <section class="section section-cream" id="warum-wir">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Warum Golden Accounting</span>
+        <h2 class="section-title">Worauf Sie sich verlassen können</h2>
+        <p class="section-intro">Keine Warteschleifen, kein Sachbearbeiter-Wechsel — fünf Gründe, warum Kundinnen und Kunden bei uns bleiben.</p>
+      </div>
+
+      <div class="ledger reveal">
+        <div class="ledger-row">
+          <h3>Eine feste Ansprechpartnerin</h3>
+          <p>Keine Warteschleife, kein Wechsel der Sachbearbeiterin — Melisa Aylanc kennt Ihre Unterlagen und Ihre Situation persönlich.</p>
+        </div>
+        <div class="ledger-row">
+          <h3>Drei Sprachen</h3>
+          <p>Beratung auf Deutsch, Türkisch und Englisch, klar erklärt statt in Amtsdeutsch.</p>
+        </div>
+        <div class="ledger-row">
+          <h3>Alles aus einer Hand</h3>
+          <p>Buchhaltung, Büroservice und Behördengänge bei einem Ansprechpartner, statt bei drei verschiedenen Dienstleistern.</p>
+        </div>
+        <div class="ledger-row">
+          <h3>Sorgfalt mit sensiblen Unterlagen</h3>
+          <p>Ihre Belege, Verträge und persönlichen Dokumente werden vertraulich und sorgfältig behandelt.</p>
+        </div>
+        <div class="ledger-row">
+          <h3>Kurze Wege</h3>
+          <p>Telefon, WhatsApp oder ein persönlicher Termin in der Ottokarstraße — Antworten kommen schnell, nicht erst nach Tagen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BEWERTUNGEN ===================== -->
+  <section class="section section-dark" id="bewertungen">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Bewertungen</span>
+        <h2 class="section-title">Was Kundinnen und Kunden sagen</h2>
+        <div class="rating-summary">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+          </span>
+          <span>5,0 von 5 — basierend auf unseren Kundenstimmen</span>
+        </div>
+      </div>
+
+      <div class="reviews-wrap reveal">
+        <div class="reviews-track" id="reviewsTrack">
+
+          <article class="review-card">
+            <span class="stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            </span>
+            <p class="review-quote">„Endlich jemand, der meine Lohnabrechnungen pünktlich und ohne Rückfragen erledigt — und das auch auf Türkisch erklärt.“</p>
+            <div class="review-meta">
+              <span class="review-name">Ayşe K.</span>
+              <span class="review-role">Café-Inhaberin, Neukölln</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <span class="stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            </span>
+            <p class="review-quote">„Meine erste Steuererklärung als Selbstständiger war für mich ein Albtraum. Frau Aylanc hat alles geordnet und verständlich gemacht.“</p>
+            <div class="review-meta">
+              <span class="review-name">Daniel R.</span>
+              <span class="review-role">Freelancer, Webdesign</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <span class="stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            </span>
+            <p class="review-quote">„Beim Antrag fürs Kindergeld hätte ich allein keinen Durchblick gehabt. Hier wurde alles erledigt, ich musste nur unterschreiben.“</p>
+            <div class="review-meta">
+              <span class="review-name">Fatma S.</span>
+              <span class="review-role">Privatkundin</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <span class="stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            </span>
+            <p class="review-quote">„Der Büroservice nimmt mir die ganze Verwaltung ab, sodass ich mich auf meine Patienten konzentrieren kann.“</p>
+            <div class="review-meta">
+              <span class="review-name">Markus T.</span>
+              <span class="review-role">Physiotherapiepraxis</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <span class="stars" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
+            </span>
+            <p class="review-quote">„Die Übersetzung meiner Unterlagen war schnell, sauber und genau das, was die Behörde verlangt hat.“</p>
+            <div class="review-meta">
+              <span class="review-name">Elena M.</span>
+              <span class="review-role">Privatkundin</span>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="reviews-controls">
+          <button class="review-btn" id="reviewPrev" aria-label="Vorherige Bewertung">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="review-btn" id="reviewNext" aria-label="Nächste Bewertung">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STANDORT ===================== -->
+  <section class="section section-cream" id="standort">
+    <div class="container standort-grid">
+      <div class="reveal">
+        <span class="eyebrow">Standort</span>
+        <h2 class="section-title" style="margin-bottom:34px;">Besuchen Sie uns in Berlin</h2>
+
+        <div class="standort-block">
+          <span class="standort-label">Adresse</span>
+          <p>Ottokarstraße 7<br>12105 Berlin</p>
+        </div>
+
+        <div class="standort-block">
+          <span class="standort-label">Öffnungszeiten</span>
+          <p>Montag bis Freitag, 09:00 – 14:00 Uhr<br>Termine nach Vereinbarung</p>
+          <span class="status-pill" id="statusPill"><span class="dot"></span><span id="statusText">Öffnungszeiten werden geprüft …</span></span>
+        </div>
+
+        <div class="standort-block">
+          <span class="standort-label">Sprachen</span>
+          <p>Beratung und Betreuung auf Deutsch, Türkisch und Englisch.</p>
+        </div>
+
+        <div class="standort-block">
+          <span class="standort-label">Nahverkehr</span>
+          <p>U-Bahnhof Ullsteinstraße (U6) liegt in der Nähe. Mit dem Bus erreichen Sie uns über die Haltestelle Attilaplatz (Linien 170, 184, 246), mit der S-Bahn über den Bahnhof Attilastraße (S2).</p>
+        </div>
+      </div>
+
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=Ottokarstra%C3%9Fe+7%2C+12105+Berlin&output=embed"
+          title="Standort Golden Accounting auf Google Maps"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KONTAKT ===================== -->
+  <section class="section section-dark" id="kontakt">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2 class="section-title">Kontakt aufnehmen</h2>
+        <p class="section-intro">Rufen Sie an oder schreiben Sie uns auf WhatsApp — wir antworten schnell, persönlich und in der Sprache, die Ihnen am liebsten ist.</p>
+      </div>
+
+      <div class="kontakt-grid">
+        <div class="kontakt-card reveal">
+          <div class="kontakt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v2.6a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 1h2.6a2 2 0 0 1 2 1.7c.1 1.1.4 2.2.7 3.2a2 2 0 0 1-.5 2.1L7.7 9.3a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c1 .3 2.1.6 3.2.7a2 2 0 0 1 1.7 2Z"/></svg>
+          </div>
+          <h3>Jetzt anrufen</h3>
+          <p class="kontakt-text">Erreichbar im Büro und mobil — wählen Sie einfach die passende Nummer.</p>
+          <div class="tel-lines">
+            <a class="tel-line" href="tel:+493039714279"><span>Büro / Tel.</span>030 3971479</a>
+            <a class="tel-line" href="tel:+4917655568676"><span>Mobil</span>0176 55568676</a>
+          </div>
+        </div>
+
+        <div class="kontakt-card reveal">
+          <div class="kontakt-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-12.7 7.2L3 20l1.4-5.1A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 10.3c0 3 2.7 5.7 5.7 5.7"/></svg>
+          </div>
+          <h3>WhatsApp schreiben</h3>
+          <p class="kontakt-text">Schnelle Antworten direkt aufs Handy — schreiben Sie uns einfach Ihr Anliegen.</p>
+          <a class="btn btn-gold btn-block" href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#start" aria-label="Golden Accounting – Startseite">
+          <span class="brand-mark"><span class="bar" aria-hidden="true"></span><span class="gL">G</span><span class="gR">A</span></span>
+          <span class="brand-text">
+            <span class="brand-name">Golden Accounting</span>
+            <span class="brand-sub">Buchhaltung · Büroservice · Bürgerservice</span>
+          </span>
+        </a>
+        <p>Persönliche Buchhaltungs-, Büro- und Bürgerservices in Berlin — auf Deutsch, Türkisch und Englisch.</p>
+      </div>
+
+      <div>
+        <span class="footer-heading">Kontakt</span>
+        <ul class="footer-list">
+          <li><a href="tel:+493039714279">Tel. 030 3971479</a></li>
+          <li><a href="tel:+4917655568676">Mobil 0176 55568676</a></li>
+          <li><a href="mailto:Info@Golden-Accounting.de">Info@Golden-Accounting.de</a></li>
+          <li><a href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a></li>
+          <li><span>Ottokarstraße 7, 12105 Berlin</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <span class="footer-heading">Rechtliches</span>
+        <ul class="footer-list">
+          <li><button type="button" data-modal-open="modalImpressum">Impressum</button></li>
+          <li><button type="button" data-modal-open="modalDatenschutz">Datenschutz</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="yearNow">2026</span> Golden Accounting — Inh. Melisa Aylanc. Alle Rechte vorbehalten.</span>
+      <span>www.Golden-Accounting.de</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING WHATSAPP ===================== -->
+<a class="float-whatsapp" href="https://wa.me/4917655568676" target="_blank" rel="noopener" aria-label="WhatsApp schreiben">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-12.7 7.2L3 20l1.4-5.1A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 10.3c0 3 2.7 5.7 5.7 5.7"/></svg>
+</a>
+
+<!-- ===================== MODALS ===================== -->
+<div class="modal-overlay" id="modalImpressum" role="dialog" aria-modal="true" aria-labelledby="impressumTitle">
+  <div class="modal">
+    <button class="modal-close" data-modal-close aria-label="Schließen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+    <h2 id="impressumTitle">Impressum</h2>
+    <p><strong>Angaben gemäß § 5 TMG</strong></p>
+    <p>Golden Accounting<br>Inh. Melisa Aylanc<br>Ottokarstraße 7<br>12105 Berlin</p>
+    <h3>Kontakt</h3>
+    <p>Telefon: 030 3971479<br>Mobil: 0176 55568676<br>E-Mail: Info@Golden-Accounting.de</p>
+    <h3>Umsatzsteuer-ID</h3>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE410383717</p>
+    <h3>Verantwortlich für den Inhalt</h3>
+    <p>Gemäß § 18 Abs. 2 MStV: Melisa Aylanc, Anschrift wie oben.</p>
+    <p class="modal-note">Diese Website dient ausschließlich der Information und ersetzt keine individuelle Rechts- oder Steuerberatung.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalDatenschutz" role="dialog" aria-modal="true" aria-labelledby="datenschutzTitle">
+  <div class="modal">
+    <button class="modal-close" data-modal-close aria-label="Schließen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+    <h2 id="datenschutzTitle">Datenschutzerklärung</h2>
+
+    <h3>Verantwortlicher</h3>
+    <p>Golden Accounting, Inh. Melisa Aylanc, Ottokarstraße 7, 12105 Berlin, E-Mail: Info@Golden-Accounting.de</p>
+
+    <h3>Keine Cookies, kein Tracking</h3>
+    <p>Diese Website verwendet keine eigenen Cookies, keine Analyse- oder Tracking-Tools und kein Kontaktformular. Es werden durch uns keine personenbezogenen Daten über die Website erhoben oder gespeichert.</p>
+
+    <h3>Google Maps</h3>
+    <p>Auf der Standortseite ist eine Karte von Google Maps eingebunden. Beim Aufruf dieser Seite stellt Ihr Browser eine Verbindung zu Servern von Google her, wodurch Google unter Umständen Daten wie Ihre IP-Adresse erhält. Mehr dazu in den Datenschutzhinweisen von Google.</p>
+
+    <h3>Telefon und WhatsApp</h3>
+    <p>Wenn Sie uns über die angezeigten Telefonnummern oder über WhatsApp kontaktieren, gelten die Datenschutzbestimmungen Ihres jeweiligen Anbieters beziehungsweise von WhatsApp / Meta. Die dabei übermittelten Daten dienen ausschließlich der Bearbeitung Ihrer Anfrage.</p>
+
+    <h3>Hosting</h3>
+    <p>Diese Website wird bei STRATO gehostet. Beim Besuch der Seite verarbeitet der Hosting-Anbieter technisch notwendige Daten wie die IP-Adresse, um die Seite ausliefern zu können.</p>
+
+    <h3>Ihre Rechte</h3>
+    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten. Wenden Sie sich hierzu an die oben genannte E-Mail-Adresse.</p>
+
+    <p class="modal-note">Bitte prüfen Sie diesen Text vor Veröffentlichung und ergänzen Sie ggf. fehlende Angaben (z. B. Steuernummer) — diese Seite ersetzt keine Rechtsberatung.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Header scroll state ---------- */
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 18){ header.classList.add('is-scrolled'); }
+    else { header.classList.remove('is-scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- Mobile nav toggle ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var navMenu = document.getElementById('navMenu');
+
+  function closeMenu(){
+    navMenu.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded','false');
+    navToggle.setAttribute('aria-label','Menü öffnen');
+  }
+  function openMenu(){
+    navMenu.classList.add('is-open');
+    navToggle.setAttribute('aria-expanded','true');
+    navToggle.setAttribute('aria-label','Menü schließen');
+  }
+  navToggle.addEventListener('click', function(){
+    var isOpen = navMenu.classList.contains('is-open');
+    if(isOpen){ closeMenu(); } else { openMenu(); }
+  });
+  document.querySelectorAll('[data-nav]').forEach(function(link){
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeMenu(); }
+  });
+
+  /* ---------- Scrollspy for nav links ---------- */
+  var sections = document.querySelectorAll('main .section');
+  var navLinks = document.querySelectorAll('.nav-link[data-nav]');
+  function setActive(id){
+    navLinks.forEach(function(l){
+      var match = l.getAttribute('href') === '#' + id;
+      l.classList.toggle('is-active', match);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ setActive(entry.target.id); }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    sections.forEach(function(s){ if(s.id){ spy.observe(s); } });
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          ro.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(function(el){ ro.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* ---------- Reviews carousel ---------- */
+  var track = document.getElementById('reviewsTrack');
+  var prevBtn = document.getElementById('reviewPrev');
+  var nextBtn = document.getElementById('reviewNext');
+  function scrollByCard(dir){
+    var card = track.querySelector('.review-card');
+    var amount = card ? card.getBoundingClientRect().width + 24 : 360;
+    track.scrollBy({left: dir * amount, behavior:'smooth'});
+  }
+  if(prevBtn && nextBtn){
+    prevBtn.addEventListener('click', function(){ scrollByCard(-1); });
+    nextBtn.addEventListener('click', function(){ scrollByCard(1); });
+  }
+
+  /* ---------- Open / closed status ---------- */
+  function updateStatus(){
+    var pill = document.getElementById('statusPill');
+    var text = document.getElementById('statusText');
+    if(!pill || !text) return;
+    var now = new Date();
+    var day = now.getDay();
+    var hour = now.getHours() + now.getMinutes()/60;
+    var isWeekday = day >= 1 && day <= 5;
+    var isOpen = isWeekday && hour >= 9 && hour < 14;
+    pill.classList.toggle('status-open', isOpen);
+    pill.classList.toggle('status-closed', !isOpen);
+    text.textContent = isOpen ? 'Jetzt geöffnet' : 'Aktuell geschlossen — Termine nach Vereinbarung';
+  }
+  updateStatus();
+
+  /* ---------- Modals ---------- */
+  var lastFocused = null;
+  document.querySelectorAll('[data-modal-open]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var modal = document.getElementById(btn.getAttribute('data-modal-open'));
+      if(!modal) return;
+      lastFocused = btn;
+      modal.classList.add('is-open');
+      var heading = modal.querySelector('h2');
+      if(heading){ heading.setAttribute('tabindex','-1'); heading.focus(); }
+    });
+  });
+  function closeModal(modal){
+    modal.classList.remove('is-open');
+    if(lastFocused){ lastFocused.focus(); }
+  }
+  document.querySelectorAll('.modal-overlay').forEach(function(overlay){
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay){ closeModal(overlay); }
+    });
+    overlay.querySelectorAll('[data-modal-close]').forEach(function(btn){
+      btn.addEventListener('click', function(){ closeModal(overlay); });
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.modal-overlay.is-open').forEach(closeModal);
+    }
+  });
+
+  /* ---------- Footer year ---------- */
+  var yearEl = document.getElementById('yearNow');
+  if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+})();
+</script>
+</body>
+</html>
