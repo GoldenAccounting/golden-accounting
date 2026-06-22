@@ -489,6 +489,21 @@ h1,h2,h3,p{margin:0;}
   .seal::before,.scroll-cue svg,.float-whatsapp::before{animation:none;}
   *{transition-duration:.01ms !important;}
 }
+/* ====================== KONTAKTFORMULAR ====================== */
+.kform-wrap{margin-top:60px;background:rgba(252,251,248,.04);border:1px solid var(--line-dark);padding:46px 38px;}
+.kform-wrap h3{font-family:var(--font-display);font-weight:600;font-size:1.6rem;color:var(--white);margin-bottom:8px;}
+.kform-wrap p.kform-sub{font-size:.95rem;opacity:.75;line-height:1.7;margin-bottom:32px;}
+.kform-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.kform-group{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
+.kform-group label{font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+.kform-group input,.kform-group textarea{background:rgba(255,255,255,.05);border:1px solid var(--line-dark);color:var(--white);font-family:var(--font-body);font-size:.97rem;padding:13px 16px;outline:none;transition:border-color .2s ease,background .2s ease;width:100%;box-sizing:border-box;}
+.kform-group input::placeholder,.kform-group textarea::placeholder{color:rgba(255,255,255,.3);}
+.kform-group input:focus,.kform-group textarea:focus{border-color:var(--gold);background:rgba(201,166,104,.06);}
+.kform-group textarea{resize:vertical;min-height:130px;}
+.kform-required{color:var(--gold);}
+.kform-notice{font-size:.78rem;opacity:.5;margin-top:10px;}
+.kform-success{display:none;padding:18px 22px;border:1px solid #5f8b5a;color:#a3c99e;font-size:.95rem;margin-top:18px;}
+@media(max-width:760px){.kform-wrap{padding:34px 24px;}.kform-row{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -869,10 +884,46 @@ h1,h2,h3,p{margin:0;}
           <a class="btn btn-gold btn-block" href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a>
         </div>
       </div>
+
+      <!-- Kontaktformular -->
+      <div class="kform-wrap reveal">
+        <h3>Nachricht senden</h3>
+        <p class="kform-sub">Füllen Sie das Formular aus — wir melden uns schnellstmöglich bei Ihnen.</p>
+        <form id="kform" action="https://formspree.io/f/xnjkqnbb" method="POST" novalidate>
+          <div class="kform-row">
+            <div class="kform-group">
+              <label for="kf-vorname">Vorname</label>
+              <input type="text" id="kf-vorname" name="vorname" placeholder="Ihr Vorname">
+            </div>
+            <div class="kform-group">
+              <label for="kf-name">Nachname</label>
+              <input type="text" id="kf-name" name="nachname" placeholder="Ihr Nachname">
+            </div>
+          </div>
+          <div class="kform-row">
+            <div class="kform-group">
+              <label for="kf-email">E-Mail <span class="kform-required">*</span></label>
+              <input type="email" id="kf-email" name="email" placeholder="ihre@email.de" required>
+            </div>
+            <div class="kform-group">
+              <label for="kf-tel">Telefonnummer</label>
+              <input type="tel" id="kf-tel" name="telefon" placeholder="030 / 0176 …">
+            </div>
+          </div>
+          <div class="kform-group">
+            <label for="kf-anliegen">Anliegen <span class="kform-required">*</span></label>
+            <textarea id="kf-anliegen" name="anliegen" placeholder="Beschreiben Sie kurz Ihr Anliegen …" required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="Neue Anfrage – Golden Accounting">
+          <input type="text" name="_gotcha" style="display:none">
+          <button type="submit" class="btn btn-gold">Nachricht senden</button>
+          <p class="kform-notice">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Bearbeitung Ihrer Anfrage zu.</p>
+        </form>
+        <div class="kform-success" id="kform-success">✓ Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns bald bei Ihnen.</div>
+      </div>
+
     </div>
   </section>
-
-</main>
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
@@ -1104,6 +1155,33 @@ h1,h2,h3,p{margin:0;}
   /* ---------- Footer year ---------- */
   var yearEl = document.getElementById('yearNow');
   if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+  /* ---------- Kontaktformular Formspree ---------- */
+  var kform = document.getElementById('kform');
+  if(kform){
+    kform.addEventListener('submit', function(e){
+      e.preventDefault();
+      var btn = kform.querySelector('button[type="submit"]');
+      btn.textContent = 'Wird gesendet …';
+      btn.disabled = true;
+      fetch(kform.action, {
+        method: 'POST',
+        body: new FormData(kform),
+        headers: {'Accept': 'application/json'}
+      }).then(function(res){
+        if(res.ok){
+          kform.style.display = 'none';
+          document.getElementById('kform-success').style.display = 'block';
+        } else {
+          btn.textContent = 'Fehler – bitte erneut versuchen';
+          btn.disabled = false;
+        }
+      }).catch(function(){
+        btn.textContent = 'Fehler – bitte erneut versuchen';
+        btn.disabled = false;
+      });
+    });
+  }
 
 })();
 </script>
