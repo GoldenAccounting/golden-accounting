@@ -19,7 +19,7 @@
 <meta property="og:locale" content="de_DE">
 
 <!-- Favicon (inline, no external file needed) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23c9a668'/%3E%3Cline x1='32' y1='11' x2='32' y2='53' stroke='%2315120f' stroke-width='2'/%3E%3Ctext x='8' y='30' font-family='Georgia,serif' font-size='25' fill='%2315120f'%3EG%3C/text%3E%3Ctext x='34' y='56' font-family='Georgia,serif' font-size='25' fill='%2315120f'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23c9a668'/%3E%3Cline x1='32' y1='11' x2='32' y2='53' stroke='%2315120f' stroke-width='2'/%3E%3Ctext x='8' y='42' font-family='Georgia,serif' font-size='25' fill='%2315120f'%3EG%3C/text%3E%3Ctext x='34' y='42' font-family='Georgia,serif' font-size='25' fill='%2315120f'%3EA%3C/text%3E%3C/svg%3E">
 
 <!-- Google Fonts (only external dependency) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
   "name": "Golden Accounting",
   "alternateName": "Golden Accounting – Inh. Melisa Aylanc",
   "url": "https://www.golden-accounting.de/",
-  "telephone": "+493039714279",
+  "telephone": "+4930397114279",
   "email": "Info@Golden-Accounting.de",
   "vatID": "DE410383717",
   "address": {
@@ -176,8 +176,8 @@ h1,h2,h3,p{margin:0;}
   font-family:var(--font-display);font-weight:500;font-size:1.45rem;line-height:1;color:var(--black);
 }
 .brand-mark .bar{grid-column:1 / 3;grid-row:1 / 3;justify-self:center;align-self:stretch;width:1px;background:var(--black);}
-.brand-mark .gL{grid-column:1;grid-row:1;align-self:end;justify-self:center;position:relative;z-index:1;}
-.brand-mark .gR{grid-column:2;grid-row:2;align-self:end;justify-self:center;position:relative;z-index:1;}
+.brand-mark .gL{grid-column:1;grid-row:1;align-self:start;justify-self:center;margin-top:5px;position:relative;z-index:1;}
+.brand-mark .gR{grid-column:2;grid-row:2;align-self:end;justify-self:center;margin-bottom:5px;position:relative;z-index:1;}
 .brand-text{display:flex;flex-direction:column;line-height:1.25;}
 .brand-name{
   font-family:var(--font-eyebrow);font-weight:600;letter-spacing:.16em;
@@ -373,18 +373,9 @@ h1,h2,h3,p{margin:0;}
 .status-pill.status-open{border-color:#5f8b5a;color:#3f6a3c;}
 .status-pill.status-closed .dot{background:var(--gold-deep);}
 .map-frame{
-  position:relative;
-  width:100%;
-  min-height:420px;
   border:1px solid var(--line-light);overflow:hidden;background:var(--white);box-shadow:var(--shadow-sm);
 }
-.map-frame iframe{
-  position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  min-height:420px;
-  border:0;display:block;
-}
+.map-frame iframe{width:100%;height:420px;border:0;display:block;}
 
 /* ====================== KONTAKT ====================== */
 .kontakt-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:54px;}
@@ -462,8 +453,6 @@ h1,h2,h3,p{margin:0;}
   .standort-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;}
   .footer-brand{grid-column:1 / -1;}
-  .map-frame{min-height:400px;}
-  .map-frame iframe{min-height:400px;}
 }
 @media (max-width:880px){
   .nav-menu{
@@ -486,16 +475,12 @@ h1,h2,h3,p{margin:0;}
   .trust-item{padding:6px 16px;}
   .footer-grid{grid-template-columns:1fr;gap:36px;}
   .footer-bottom{flex-direction:column;align-items:flex-start;}
-  .map-frame{min-height:380px;}
-  .map-frame iframe{min-height:380px;}
 }
 @media (max-width:480px){
   .hero h1{font-size:clamp(2rem,9vw,2.6rem);}
   .tel-line{font-size:1.4rem;}
   .kontakt-card{padding:34px 24px;}
   .modal{padding:34px 24px;}
-  .map-frame{min-height:350px;}
-  .map-frame iframe{min-height:350px;}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -545,7 +530,7 @@ h1,h2,h3,p{margin:0;}
         <h1>Ihre Zahlen. Ihre Anträge.<br><span class="accent">In guten Händen.</span></h1>
         <p class="hero-sub">Golden Accounting begleitet Unternehmen, Selbstständige, Freiberufler und Privatkunden in Berlin durch Buchhaltung, Lohnabrechnung, Büroorganisation und Behördenangelegenheiten — persönlich betreut von Melisa Aylanc, auf Deutsch, Türkisch und Englisch.</p>
         <div class="hero-actions">
-          <a class="btn btn-gold" href="tel:+493039714279">Jetzt anrufen</a>
+          <a class="btn btn-gold" href="tel:+4930397114279">Jetzt anrufen</a>
           <a class="btn btn-outline" href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a>
         </div>
         <div class="hero-meta">
@@ -647,7 +632,7 @@ h1,h2,h3,p{margin:0;}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1.2"/><path d="M9 8h6M9 12h6M9 16h3.5"/></svg>
           </div>
           <h3>Steuererklärungen</h3>
-          <p>Ausfüllhilfe für Private und gewerbliche Steuererklärungen, sorgfältig vorbereitet und fristgerecht eingereicht.</p>
+          <p>Ausfüllhilfe für Private Steuererklärungen, sorgfältig vorbereitet und fristgerecht eingereicht.</p>
         </article>
 
         <article class="service-card reveal">
@@ -842,10 +827,11 @@ h1,h2,h3,p{margin:0;}
         </div>
       </div>
 
-      <div class="map-frame">
+      <div class="map-frame reveal">
         <iframe
           src="https://www.google.com/maps?q=Ottokarstra%C3%9Fe+7%2C+12105+Berlin&output=embed"
           title="Standort Golden Accounting auf Google Maps"
+          loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
@@ -869,7 +855,7 @@ h1,h2,h3,p{margin:0;}
           <h3>Jetzt anrufen</h3>
           <p class="kontakt-text">Erreichbar im Büro und mobil — wählen Sie einfach die passende Nummer.</p>
           <div class="tel-lines">
-            <a class="tel-line" href="tel:+493039714279"><span>Büro / Tel.</span>030 3971479</a>
+            <a class="tel-line" href="tel:+4930397114279"><span>Büro / Tel.</span>030 39714279</a>
             <a class="tel-line" href="tel:+4917655568676"><span>Mobil</span>0176 55568676</a>
           </div>
         </div>
@@ -888,42 +874,6 @@ h1,h2,h3,p{margin:0;}
 
 </main>
 
-    <!-- Kontaktformular -->
-      <div class="kform-wrap reveal">
-        <h3>Nachricht senden</h3>
-        <p class="kform-sub">Füllen Sie das Formular aus — wir melden uns schnellstmöglich bei Ihnen.</p>
-        <form id="kform" action="https://formspree.io/f/xnjkqnbb" method="POST" novalidate>
-          <div class="kform-row">
-            <div class="kform-group">
-              <label for="kf-vorname">Vorname</label>
-              <input type="text" id="kf-vorname" name="vorname" placeholder="Ihr Vorname">
-            </div>
-            <div class="kform-group">
-              <label for="kf-name">Nachname</label>
-              <input type="text" id="kf-name" name="nachname" placeholder="Ihr Nachname">
-            </div>
-          </div>
-          <div class="kform-row">
-            <div class="kform-group">
-              <label for="kf-email">E-Mail <span class="kform-required">*</span></label>
-              <input type="email" id="kf-email" name="email" placeholder="ihre@email.de" required>
-            </div>
-            <div class="kform-group">
-              <label for="kf-tel">Telefonnummer</label>
-              <input type="tel" id="kf-tel" name="telefon" placeholder="030 / 0176 …">
-            </div>
-          </div>
-          <div class="kform-group">
-            <label for="kf-anliegen">Anliegen <span class="kform-required">*</span></label>
-            <textarea id="kf-anliegen" name="anliegen" placeholder="Beschreiben Sie kurz Ihr Anliegen …" required></textarea>
-          </div>
-          <input type="hidden" name="_subject" value="Neue Anfrage – Golden Accounting">
-          <input type="text" name="_gotcha" style="display:none">
-          <button type="submit" class="btn btn-gold">Nachricht senden</button>
-          <p class="kform-notice">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Bearbeitung Ihrer Anfrage zu.</p>
-        </form>
-        <div class="kform-success" id="kform-success">✓ Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns bald bei Ihnen.</div>
-      </div>
 <!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
   <div class="container">
@@ -942,7 +892,7 @@ h1,h2,h3,p{margin:0;}
       <div>
         <span class="footer-heading">Kontakt</span>
         <ul class="footer-list">
-          <li><a href="tel:+493039714279">Tel. 030 3971479</a></li>
+          <li><a href="tel:+4930397114279">Tel. 030 39714279</a></li>
           <li><a href="tel:+4917655568676">Mobil 0176 55568676</a></li>
           <li><a href="mailto:Info@Golden-Accounting.de">Info@Golden-Accounting.de</a></li>
           <li><a href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a></li>
@@ -981,7 +931,7 @@ h1,h2,h3,p{margin:0;}
     <p><strong>Angaben gemäß § 5 TMG</strong></p>
     <p>Golden Accounting<br>Inh. Melisa Aylanc<br>Ottokarstraße 7<br>12105 Berlin</p>
     <h3>Kontakt</h3>
-    <p>Telefon: 030 3971479<br>Mobil: 0176 55568676<br>E-Mail: Info@Golden-Accounting.de</p>
+    <p>Telefon: 030 39714279<br>Mobil: 0176 55568676<br>E-Mail: Info@Golden-Accounting.de</p>
     <h3>Umsatzsteuer-ID</h3>
     <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE410383717</p>
     <h3>Verantwortlich für den Inhalt</h3>
@@ -1105,32 +1055,6 @@ h1,h2,h3,p{margin:0;}
     nextBtn.addEventListener('click', function(){ scrollByCard(1); });
   }
 
-  /* ---------- Kontaktformular Formspree ---------- */
-  var kform = document.getElementById('kform');
-  if(kform){
-    kform.addEventListener('submit', function(e){
-      e.preventDefault();
-      var btn = kform.querySelector('button[type="submit"]');
-      btn.textContent = 'Wird gesendet …';
-      btn.disabled = true;
-      fetch(kform.action, {
-        method: 'POST',
-        body: new FormData(kform),
-        headers: { 'Accept': 'application/json' }
-      }).then(function(res){
-        if(res.ok){
-          kform.style.display = 'none';
-          document.getElementById('kform-success').style.display = 'block';
-        } else {
-          btn.textContent = 'Fehler – bitte erneut versuchen';
-          btn.disabled = false;
-        }
-      }).catch(function(){
-        btn.textContent = 'Fehler – bitte erneut versuchen';
-        btn.disabled = false;
-      });
-    });
-  }
   /* ---------- Open / closed status ---------- */
   function updateStatus(){
     var pill = document.getElementById('statusPill');
