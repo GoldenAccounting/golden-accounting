@@ -171,13 +171,14 @@ h1,h2,h3,p{margin:0;}
 .brand{display:flex;align-items:center;gap:14px;}
 .brand-mark{
   width:46px;height:46px;flex:none;background:var(--gold);
+  position:relative;overflow:hidden;
+  border:1.5px solid var(--black);
   display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
-  border:1.5px solid var(--black);position:relative;overflow:hidden;
-  font-family:var(--font-display);font-weight:500;font-size:1.45rem;line-height:1;color:var(--black);
+  font-family:var(--font-display);font-weight:500;font-size:1.2rem;line-height:1;color:var(--black);
 }
-.brand-mark .bar{grid-column:1 / 3;grid-row:1 / 3;justify-self:center;align-self:stretch;width:1px;background:var(--black);}
-.brand-mark .gL{grid-column:1;grid-row:1;align-self:start;justify-self:center;margin-top:5px;position:relative;z-index:1;}
-.brand-mark .gR{grid-column:2;grid-row:2;align-self:end;justify-self:center;margin-bottom:5px;position:relative;z-index:1;}
+.brand-mark .bar{position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--black);transform:translateX(-50%);}
+.brand-mark .gL{grid-column:1;grid-row:1;align-self:center;justify-self:center;position:relative;z-index:1;}
+.brand-mark .gR{grid-column:2;grid-row:2;align-self:center;justify-self:center;position:relative;z-index:1;}
 .brand-text{display:flex;flex-direction:column;line-height:1.25;}
 .brand-name{
   font-family:var(--font-eyebrow);font-weight:600;letter-spacing:.16em;
@@ -207,6 +208,19 @@ h1,h2,h3,p{margin:0;}
 .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
 .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+/* ====================== LANG SWITCH ====================== */
+.lang-switch{display:flex;align-items:center;gap:6px;z-index:110;}
+.lang-btn{
+  font-family:var(--font-eyebrow);font-size:.72rem;letter-spacing:.06em;
+  color:var(--off-white);opacity:.7;padding:6px 11px;border:1px solid var(--line-dark);
+  border-radius:999px;transition:opacity .2s ease,border-color .2s ease,color .2s ease,background .2s ease;
+}
+.lang-btn:hover{opacity:1;border-color:var(--gold);}
+.lang-btn.is-active{opacity:1;color:var(--black);background:var(--gold);border-color:var(--gold);}
+@media (max-width:880px){
+  .lang-btn{padding:5px 9px;font-size:.68rem;}
+}
 
 /* ====================== HERO ====================== */
 .hero{
@@ -504,18 +518,10 @@ h1,h2,h3,p{margin:0;}
 .kform-notice{font-size:.78rem;opacity:.5;margin-top:10px;}
 .kform-success{display:none;padding:18px 22px;border:1px solid #5f8b5a;color:#a3c99e;font-size:.95rem;margin-top:18px;}
 @media(max-width:760px){.kform-wrap{padding:34px 24px;}.kform-row{grid-template-columns:1fr;}}
-/* ====================== SPRACHUMSCHALTER ====================== */
-.lang-switcher{display:flex;align-items:center;gap:6px;margin-left:18px;}
-.lang-btn{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:1.5px solid transparent;padding:5px 8px;cursor:pointer;transition:border-color .2s ease,background .2s ease;color:var(--off-white);}
-.lang-btn:hover{border-color:var(--gold);background:rgba(201,166,104,.08);}
-.lang-btn.active{border-color:var(--gold);background:rgba(201,166,104,.13);}
-.lang-btn .flag{font-size:1.4rem;line-height:1;}
-.lang-btn .lang-name{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;}
-@media(max-width:880px){.lang-switcher{margin-left:0;margin-top:18px;}}
 </style>
 </head>
 <body>
-<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<a class="skip-link" href="#main" data-i18n="skip.link">Zum Inhalt springen</a>
 
 <!-- ===================== HEADER ===================== -->
 <header class="site-header" id="siteHeader">
@@ -524,38 +530,28 @@ h1,h2,h3,p{margin:0;}
       <span class="brand-mark"><span class="bar" aria-hidden="true"></span><span class="gL">G</span><span class="gR">A</span></span>
       <span class="brand-text">
         <span class="brand-name">Golden Accounting</span>
-        <span class="brand-sub">Buchhaltung · Büroservice · Bürgerservice</span>
+        <span class="brand-sub" data-i18n="header.brand.sub">Buchhaltung · Büroservice · Bürgerservice</span>
       </span>
     </a>
+
+    <div class="lang-switch" role="group" aria-label="Sprache wählen / Language / Dil">
+      <button class="lang-btn is-active" type="button" data-lang="de">DE</button>
+      <button class="lang-btn" type="button" data-lang="tr">TR</button>
+      <button class="lang-btn" type="button" data-lang="en">EN</button>
+    </div>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
 
     <ul class="nav-menu" id="navMenu">
-      <li><a class="nav-link" data-nav href="#start">Startseite</a></li>
-      <li><a class="nav-link" data-nav href="#leistungen">Leistungen</a></li>
-      <li><a class="nav-link" data-nav href="#warum-wir">Warum wir</a></li>
-      <li><a class="nav-link" data-nav href="#bewertungen">Bewertungen</a></li>
-      <li><a class="nav-link" data-nav href="#standort">Standort</a></li>
-      <li><a class="nav-link nav-cta" data-nav href="#kontakt">Kontakt</a></li>
+      <li><a class="nav-link" data-nav href="#start" data-i18n="header.nav.start">Startseite</a></li>
+      <li><a class="nav-link" data-nav href="#leistungen" data-i18n="header.nav.leistungen">Leistungen</a></li>
+      <li><a class="nav-link" data-nav href="#warum-wir" data-i18n="header.nav.warum">Warum wir</a></li>
+      <li><a class="nav-link" data-nav href="#bewertungen" data-i18n="header.nav.bewertungen">Bewertungen</a></li>
+      <li><a class="nav-link" data-nav href="#standort" data-i18n="header.nav.standort">Standort</a></li>
+      <li><a class="nav-link nav-cta" data-nav href="#kontakt" data-i18n="header.nav.kontakt">Kontakt</a></li>
     </ul>
-
-    <div class="lang-switcher" id="langSwitcher">
-      <button class="lang-btn active" data-lang="de" aria-label="Deutsch">
-        <span class="flag">🇩🇪</span>
-        <span class="lang-name">DE</span>
-      </button>
-      <button class="lang-btn" data-lang="tr" aria-label="Türkçe">
-        <span class="flag">🇹🇷</span>
-        <span class="lang-name">TR</span>
-      </button>
-      <button class="lang-btn" data-lang="en" aria-label="English">
-        <span class="flag">🇬🇧</span>
-        <span class="lang-name">EN</span>
-      </button>
-    </div>
-
   </div>
 </header>
 
@@ -565,12 +561,12 @@ h1,h2,h3,p{margin:0;}
   <section class="hero section" id="start">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow hero-eyebrow">Buchhaltung · Büroservice · Bürgerservice</span>
-        <h1>Ihre Zahlen. Ihre Anträge.<br><span class="accent">In guten Händen.</span></h1>
-        <p class="hero-sub">Golden Accounting begleitet Unternehmen, Selbstständige, Freiberufler und Privatkunden in Berlin durch Buchhaltung, Lohnabrechnung, Büroorganisation und Behördenangelegenheiten — persönlich betreut von Melisa Aylanc, auf Deutsch, Türkisch und Englisch.</p>
+        <span class="eyebrow hero-eyebrow" data-i18n="header.brand.sub">Buchhaltung · Büroservice · Bürgerservice</span>
+        <h1 data-i18n="hero.title">Ihre Zahlen. Ihre Anträge.<br><span class="accent">In guten Händen.</span></h1>
+        <p class="hero-sub" data-i18n="hero.sub">Golden Accounting begleitet Unternehmen, Selbstständige, Freiberufler und Privatkunden in Berlin durch Buchhaltung, Lohnabrechnung, Büroorganisation und Behördenangelegenheiten — persönlich betreut von Melisa Aylanc, auf Deutsch, Türkisch und Englisch.</p>
         <div class="hero-actions">
-          <a class="btn btn-gold" href="tel:+4930397114279">Jetzt anrufen</a>
-          <a class="btn btn-outline" href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a>
+          <a class="btn btn-gold" href="tel:+4930397114279" data-i18n="hero.cta.call">Jetzt anrufen</a>
+          <a class="btn btn-outline" href="https://wa.me/4917655568676" target="_blank" rel="noopener" data-i18n="hero.cta.whatsapp">WhatsApp schreiben</a>
         </div>
         <div class="hero-meta">
           <span class="hero-meta-item">
@@ -579,7 +575,7 @@ h1,h2,h3,p{margin:0;}
           </span>
           <span class="hero-meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.9"/></svg>
-            Mo–Fr 9–14 Uhr · Termine nach Vereinbarung
+            <span data-i18n="hero.meta.hours">Mo–Fr 9–14 Uhr · Termine nach Vereinbarung</span>
           </span>
         </div>
       </div>
@@ -599,7 +595,7 @@ h1,h2,h3,p{margin:0;}
     </div>
 
     <a href="#leistungen" class="scroll-cue" aria-label="Zu den Leistungen scrollen">
-      Entdecken
+      <span data-i18n="hero.scroll">Entdecken</span>
       <svg viewBox="0 0 16 22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1v18M2 13l6 6 6-6"/></svg>
     </a>
   </section>
@@ -609,7 +605,7 @@ h1,h2,h3,p{margin:0;}
     <div class="container trust-row">
       <span class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18 13 13 0 0 1 0-18Z"/></svg>
-        Deutsch · Türkçe · English
+        <span data-i18n="trust.languages">Deutsch · Türkçe · English</span>
       </span>
       <span class="trust-divider"></span>
       <span class="trust-item">
@@ -619,7 +615,7 @@ h1,h2,h3,p{margin:0;}
       <span class="trust-divider"></span>
       <span class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
-        Termine nach Vereinbarung
+        <span data-i18n="trust.appointment">Termine nach Vereinbarung</span>
       </span>
     </div>
   </section>
@@ -628,9 +624,9 @@ h1,h2,h3,p{margin:0;}
   <section class="section section-light" id="leistungen">
     <div class="container">
       <div class="section-head center reveal">
-        <span class="eyebrow">Leistungen</span>
-        <h2 class="section-title">Was wir für Sie übernehmen</h2>
-        <p class="section-intro">Von der laufenden Buchhaltung bis zum Antrag beim Amt — sieben Leistungsbereiche, ein Ansprechpartner.</p>
+        <span class="eyebrow" data-i18n="services.eyebrow">Leistungen</span>
+        <h2 class="section-title" data-i18n="services.title">Was wir für Sie übernehmen</h2>
+        <p class="section-intro" data-i18n="services.intro">Von der laufenden Buchhaltung bis zum Antrag beim Amt — sieben Leistungsbereiche, ein Ansprechpartner.</p>
       </div>
 
       <div class="services-grid">
@@ -638,56 +634,56 @@ h1,h2,h3,p{margin:0;}
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1.2"/><path d="M4 8h16M9 3v18M13 11h5M13 15h5"/></svg>
           </div>
-          <h3>Buchhaltung</h3>
-          <p>Laufende Finanzbuchhaltung, Belegerfassung und Auswertungen — ordentlich geführt und jederzeit nachvollziehbar für Ihr Unternehmen oder Ihre Selbstständigkeit.</p>
+          <h3 data-i18n="services.item1.title">Buchhaltung</h3>
+          <p data-i18n="services.item1.text">Laufende Finanzbuchhaltung, Belegerfassung und Auswertungen — ordentlich geführt und jederzeit nachvollziehbar für Ihr Unternehmen oder Ihre Selbstständigkeit.</p>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="6" width="17" height="13" rx="1.4"/><path d="M3.5 10h17"/><circle cx="8" cy="14.2" r="1.6"/><path d="M13 14.2h4"/></svg>
           </div>
-          <h3>Lohnbuchhaltung</h3>
-          <p>Lohn- und Gehaltsabrechnungen für Ihr Team, inklusive Meldungen an Sozialversicherung und Finanzamt — termingerecht und korrekt.</p>
+          <h3 data-i18n="services.item2.title">Lohnbuchhaltung</h3>
+          <p data-i18n="services.item2.text">Lohn- und Gehaltsabrechnungen für Ihr Team, inklusive Meldungen an Sozialversicherung und Finanzamt — termingerecht und korrekt.</p>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8.5 12 4l8 4.5"/><rect x="4" y="8.5" width="16" height="11" rx="1"/><path d="M9 19.5V14h6v5.5"/></svg>
           </div>
-          <h3>Büroservice</h3>
-          <p>Korrespondenz, Terminorganisation und allgemeine Büroaufgaben, die Ihnen den Kopf für Ihr eigentliches Geschäft freihalten.</p>
+          <h3 data-i18n="services.item3.title">Büroservice</h3>
+          <p data-i18n="services.item3.text">Korrespondenz, Terminorganisation und allgemeine Büroaufgaben, die Ihnen den Kopf für Ihr eigentliches Geschäft freihalten.</p>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-7h6v7M4 10h16"/></svg>
           </div>
-          <h3>Bürgerservice</h3>
-          <p>Begleitung und Unterstützung bei Behördengängen, Ämtern und Formalitäten — wir übernehmen die Kommunikation, die sonst Zeit und Nerven kostet.</p>
+          <h3 data-i18n="services.item4.title">Bürgerservice</h3>
+          <p data-i18n="services.item4.text">Begleitung und Unterstützung bei Behördengängen, Ämtern und Formalitäten — wir übernehmen die Kommunikation, die sonst Zeit und Nerven kostet.</p>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1.2"/><path d="M9 8h6M9 12h6M9 16h3.5"/></svg>
           </div>
-          <h3>Steuererklärungen</h3>
-          <p>Ausfüllhilfe für Private Steuererklärungen, sorgfältig vorbereitet und fristgerecht eingereicht.</p>
+          <h3 data-i18n="services.item5.title">Steuererklärungen</h3>
+          <p data-i18n="services.item5.text">Ausfüllhilfe für Private Steuererklärungen, sorgfältig vorbereitet und fristgerecht eingereicht.</p>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18M12 3C9.4 5.6 9.4 18.4 12 21"/></svg>
           </div>
-          <h3>Übersetzungen</h3>
-          <p>Übersetzung von Dokumenten und Schreiben zwischen Deutsch, Türkisch und Englisch — verständlich für Behörden wie für Sie selbst.</p>
+          <h3 data-i18n="services.item6.title">Übersetzungen</h3>
+          <p data-i18n="services.item6.text">Übersetzung von Dokumenten und Schreiben zwischen Deutsch, Türkisch und Englisch — verständlich für Behörden wie für Sie selbst.</p>
         </article>
 
         <article class="service-card reveal">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="13" height="17" rx="1.2"/><path d="M7.5 9h6M7.5 12.5h6"/><circle cx="18.5" cy="16.5" r="3.4"/><path d="M18.5 14.6v1.9l1.3 1"/></svg>
           </div>
-          <h3>Anträge</h3>
-          <p>Ausfüllen, Zusammenstellen und Einreichen von Anträgen jeder Art — von der ersten Unterschrift bis zur Bestätigung.</p>
+          <h3 data-i18n="services.item7.title">Anträge</h3>
+          <p data-i18n="services.item7.text">Ausfüllen, Zusammenstellen und Einreichen von Anträgen jeder Art — von der ersten Unterschrift bis zur Bestätigung.</p>
         </article>
       </div>
     </div>
@@ -697,31 +693,31 @@ h1,h2,h3,p{margin:0;}
   <section class="section section-cream" id="warum-wir">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Warum Golden Accounting</span>
-        <h2 class="section-title">Worauf Sie sich verlassen können</h2>
-        <p class="section-intro">Keine Warteschleifen, kein Sachbearbeiter-Wechsel — fünf Gründe, warum Kundinnen und Kunden bei uns bleiben.</p>
+        <span class="eyebrow" data-i18n="warum.eyebrow">Warum Golden Accounting</span>
+        <h2 class="section-title" data-i18n="warum.title">Worauf Sie sich verlassen können</h2>
+        <p class="section-intro" data-i18n="warum.intro">Keine Warteschleifen, kein Sachbearbeiter-Wechsel — fünf Gründe, warum Kundinnen und Kunden bei uns bleiben.</p>
       </div>
 
       <div class="ledger reveal">
         <div class="ledger-row">
-          <h3>Eine feste Ansprechpartnerin</h3>
-          <p>Keine Warteschleife, kein Wechsel der Sachbearbeiterin — Melisa Aylanc kennt Ihre Unterlagen und Ihre Situation persönlich.</p>
+          <h3 data-i18n="warum.row1.title">Eine feste Ansprechpartnerin</h3>
+          <p data-i18n="warum.row1.text">Keine Warteschleife, kein Wechsel der Sachbearbeiterin — Melisa Aylanc kennt Ihre Unterlagen und Ihre Situation persönlich.</p>
         </div>
         <div class="ledger-row">
-          <h3>Drei Sprachen</h3>
-          <p>Beratung auf Deutsch, Türkisch und Englisch, klar erklärt statt in Amtsdeutsch.</p>
+          <h3 data-i18n="warum.row2.title">Drei Sprachen</h3>
+          <p data-i18n="warum.row2.text">Beratung auf Deutsch, Türkisch und Englisch, klar erklärt statt in Amtsdeutsch.</p>
         </div>
         <div class="ledger-row">
-          <h3>Alles aus einer Hand</h3>
-          <p>Buchhaltung, Büroservice und Behördengänge bei einem Ansprechpartner, statt bei drei verschiedenen Dienstleistern.</p>
+          <h3 data-i18n="warum.row3.title">Alles aus einer Hand</h3>
+          <p data-i18n="warum.row3.text">Buchhaltung, Büroservice und Behördengänge bei einem Ansprechpartner, statt bei drei verschiedenen Dienstleistern.</p>
         </div>
         <div class="ledger-row">
-          <h3>Sorgfalt mit sensiblen Unterlagen</h3>
-          <p>Ihre Belege, Verträge und persönlichen Dokumente werden vertraulich und sorgfältig behandelt.</p>
+          <h3 data-i18n="warum.row4.title">Sorgfalt mit sensiblen Unterlagen</h3>
+          <p data-i18n="warum.row4.text">Ihre Belege, Verträge und persönlichen Dokumente werden vertraulich und sorgfältig behandelt.</p>
         </div>
         <div class="ledger-row">
-          <h3>Kurze Wege</h3>
-          <p>Telefon, WhatsApp oder ein persönlicher Termin in der Ottokarstraße — Antworten kommen schnell, nicht erst nach Tagen.</p>
+          <h3 data-i18n="warum.row5.title">Kurze Wege</h3>
+          <p data-i18n="warum.row5.text">Telefon, WhatsApp oder ein persönlicher Termin in der Ottokarstraße — Antworten kommen schnell, nicht erst nach Tagen.</p>
         </div>
       </div>
     </div>
@@ -731,8 +727,8 @@ h1,h2,h3,p{margin:0;}
   <section class="section section-dark" id="bewertungen">
     <div class="container">
       <div class="section-head center reveal">
-        <span class="eyebrow">Bewertungen</span>
-        <h2 class="section-title">Was Kundinnen und Kunden sagen</h2>
+        <span class="eyebrow" data-i18n="bewertungen.eyebrow">Bewertungen</span>
+        <h2 class="section-title" data-i18n="bewertungen.title">Was Kundinnen und Kunden sagen</h2>
         <div class="rating-summary">
           <span class="stars" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
@@ -741,7 +737,7 @@ h1,h2,h3,p{margin:0;}
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
           </span>
-          <span>5,0 von 5 — basierend auf unseren Kundenstimmen</span>
+          <span data-i18n="bewertungen.rating">5,0 von 5 — basierend auf unseren Kundenstimmen</span>
         </div>
       </div>
 
@@ -756,10 +752,10 @@ h1,h2,h3,p{margin:0;}
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
             </span>
-            <p class="review-quote">„Endlich jemand, der meine Lohnabrechnungen pünktlich und ohne Rückfragen erledigt — und das auch auf Türkisch erklärt.“</p>
+            <p class="review-quote" data-i18n="bewertungen.review1.quote">„Endlich jemand, der meine Lohnabrechnungen pünktlich und ohne Rückfragen erledigt — und das auch auf Türkisch erklärt.“</p>
             <div class="review-meta">
               <span class="review-name">Ayşe K.</span>
-              <span class="review-role">Café-Inhaberin, Neukölln</span>
+              <span class="review-role" data-i18n="bewertungen.review1.role">Café-Inhaberin, Neukölln</span>
             </div>
           </article>
 
@@ -771,10 +767,10 @@ h1,h2,h3,p{margin:0;}
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
             </span>
-            <p class="review-quote">„Meine erste Steuererklärung als Selbstständiger war für mich ein Albtraum. Frau Aylanc hat alles geordnet und verständlich gemacht.“</p>
+            <p class="review-quote" data-i18n="bewertungen.review2.quote">„Meine erste Steuererklärung als Selbstständiger war für mich ein Albtraum. Frau Aylanc hat alles geordnet und verständlich gemacht.“</p>
             <div class="review-meta">
               <span class="review-name">Daniel R.</span>
-              <span class="review-role">Freelancer, Webdesign</span>
+              <span class="review-role" data-i18n="bewertungen.review2.role">Freelancer, Webdesign</span>
             </div>
           </article>
 
@@ -786,10 +782,10 @@ h1,h2,h3,p{margin:0;}
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
             </span>
-            <p class="review-quote">„Beim Antrag fürs Kindergeld hätte ich allein keinen Durchblick gehabt. Hier wurde alles erledigt, ich musste nur unterschreiben.“</p>
+            <p class="review-quote" data-i18n="bewertungen.review3.quote">„Beim Antrag fürs Kindergeld hätte ich allein keinen Durchblick gehabt. Hier wurde alles erledigt, ich musste nur unterschreiben.“</p>
             <div class="review-meta">
               <span class="review-name">Fatma S.</span>
-              <span class="review-role">Privatkundin</span>
+              <span class="review-role" data-i18n="bewertungen.review3.role">Privatkundin</span>
             </div>
           </article>
 
@@ -801,10 +797,10 @@ h1,h2,h3,p{margin:0;}
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
             </span>
-            <p class="review-quote">„Der Büroservice nimmt mir die ganze Verwaltung ab, sodass ich mich auf meine Patienten konzentrieren kann.“</p>
+            <p class="review-quote" data-i18n="bewertungen.review4.quote">„Der Büroservice nimmt mir die ganze Verwaltung ab, sodass ich mich auf meine Patienten konzentrieren kann.“</p>
             <div class="review-meta">
               <span class="review-name">Markus T.</span>
-              <span class="review-role">Physiotherapiepraxis</span>
+              <span class="review-role" data-i18n="bewertungen.review4.role">Physiotherapiepraxis</span>
             </div>
           </article>
 
@@ -816,20 +812,20 @@ h1,h2,h3,p{margin:0;}
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.6 7.2.9-5.3 5 1.4 7.2L12 18.3 5.6 21.7 7 14.5 1.7 9.5l7.2-.9z"/></svg>
             </span>
-            <p class="review-quote">„Die Übersetzung meiner Unterlagen war schnell, sauber und genau das, was die Behörde verlangt hat.“</p>
+            <p class="review-quote" data-i18n="bewertungen.review5.quote">„Die Übersetzung meiner Unterlagen war schnell, sauber und genau das, was die Behörde verlangt hat.“</p>
             <div class="review-meta">
               <span class="review-name">Elena M.</span>
-              <span class="review-role">Privatkundin</span>
+              <span class="review-role" data-i18n="bewertungen.review5.role">Privatkundin</span>
             </div>
           </article>
 
         </div>
 
         <div class="reviews-controls">
-          <button class="review-btn" id="reviewPrev" aria-label="Vorherige Bewertung">
+          <button class="review-btn" id="reviewPrev" aria-label="Vorherige Bewertung" data-i18n-aria-label="bewertungen.prev">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
-          <button class="review-btn" id="reviewNext" aria-label="Nächste Bewertung">
+          <button class="review-btn" id="reviewNext" aria-label="Nächste Bewertung" data-i18n-aria-label="bewertungen.next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
@@ -841,28 +837,28 @@ h1,h2,h3,p{margin:0;}
   <section class="section section-cream" id="standort">
     <div class="container standort-grid">
       <div class="reveal">
-        <span class="eyebrow">Standort</span>
-        <h2 class="section-title" style="margin-bottom:34px;">Besuchen Sie uns in Berlin</h2>
+        <span class="eyebrow" data-i18n="standort.eyebrow">Standort</span>
+        <h2 class="section-title" style="margin-bottom:34px;" data-i18n="standort.title">Besuchen Sie uns in Berlin</h2>
 
         <div class="standort-block">
-          <span class="standort-label">Adresse</span>
+          <span class="standort-label" data-i18n="standort.label.adresse">Adresse</span>
           <p>Ottokarstraße 7<br>12105 Berlin</p>
         </div>
 
         <div class="standort-block">
-          <span class="standort-label">Öffnungszeiten</span>
-          <p>Montag bis Freitag, 09:00 – 14:00 Uhr<br>Termine nach Vereinbarung</p>
-          <span class="status-pill" id="statusPill"><span class="dot"></span><span id="statusText">Öffnungszeiten werden geprüft …</span></span>
+          <span class="standort-label" data-i18n="standort.label.oeffnungszeiten">Öffnungszeiten</span>
+          <p data-i18n="standort.text.oeffnungszeiten">Montag bis Freitag, 09:00 – 14:00 Uhr<br>Termine nach Vereinbarung</p>
+          <span class="status-pill" id="statusPill"><span class="dot"></span><span id="statusText" data-i18n="standort.status.loading">Öffnungszeiten werden geprüft …</span></span>
         </div>
 
         <div class="standort-block">
-          <span class="standort-label">Sprachen</span>
-          <p>Beratung und Betreuung auf Deutsch, Türkisch und Englisch.</p>
+          <span class="standort-label" data-i18n="standort.label.sprachen">Sprachen</span>
+          <p data-i18n="standort.text.sprachen">Beratung und Betreuung auf Deutsch, Türkisch und Englisch.</p>
         </div>
 
         <div class="standort-block">
-          <span class="standort-label">Nahverkehr</span>
-          <p>U-Bahnhof Ullsteinstraße (U6) liegt in der Nähe. Mit dem Bus erreichen Sie uns über die Haltestelle Attilaplatz (Linien 170, 184, 246), mit der S-Bahn über den Bahnhof Attilastraße (S2).</p>
+          <span class="standort-label" data-i18n="standort.label.nahverkehr">Nahverkehr</span>
+          <p data-i18n="standort.text.nahverkehr">U-Bahnhof Ullsteinstraße (U6) liegt in der Nähe. Mit dem Bus erreichen Sie uns über die Haltestelle Attilaplatz (Linien 170, 184, 246), mit der S-Bahn über den Bahnhof Attilastraße (S2).</p>
         </div>
       </div>
 
@@ -870,6 +866,7 @@ h1,h2,h3,p{margin:0;}
         <iframe
           src="https://www.google.com/maps?q=Ottokarstra%C3%9Fe+7%2C+12105+Berlin&output=embed"
           title="Standort Golden Accounting auf Google Maps"
+          data-i18n-title="standort.map.title"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
@@ -881,9 +878,9 @@ h1,h2,h3,p{margin:0;}
   <section class="section section-dark" id="kontakt">
     <div class="container">
       <div class="section-head center reveal">
-        <span class="eyebrow">Kontakt</span>
-        <h2 class="section-title">Kontakt aufnehmen</h2>
-        <p class="section-intro">Rufen Sie an oder schreiben Sie uns auf WhatsApp — wir antworten schnell, persönlich und in der Sprache, die Ihnen am liebsten ist.</p>
+        <span class="eyebrow" data-i18n="kontakt.eyebrow">Kontakt</span>
+        <h2 class="section-title" data-i18n="kontakt.title">Kontakt aufnehmen</h2>
+        <p class="section-intro" data-i18n="kontakt.intro">Rufen Sie an oder schreiben Sie uns auf WhatsApp — wir antworten schnell, persönlich und in der Sprache, die Ihnen am liebsten ist.</p>
       </div>
 
       <div class="kontakt-grid">
@@ -891,11 +888,11 @@ h1,h2,h3,p{margin:0;}
           <div class="kontakt-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v2.6a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 1h2.6a2 2 0 0 1 2 1.7c.1 1.1.4 2.2.7 3.2a2 2 0 0 1-.5 2.1L7.7 9.3a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c1 .3 2.1.6 3.2.7a2 2 0 0 1 1.7 2Z"/></svg>
           </div>
-          <h3>Jetzt anrufen</h3>
-          <p class="kontakt-text">Erreichbar im Büro und mobil — wählen Sie einfach die passende Nummer.</p>
+          <h3 data-i18n="kontakt.card1.title">Jetzt anrufen</h3>
+          <p class="kontakt-text" data-i18n="kontakt.card1.text">Erreichbar im Büro und mobil — wählen Sie einfach die passende Nummer.</p>
           <div class="tel-lines">
-            <a class="tel-line" href="tel:+4930397114279"><span>Büro / Tel.</span>030 39714279</a>
-            <a class="tel-line" href="tel:+4917655568676"><span>Mobil</span>0176 55568676</a>
+            <a class="tel-line" href="tel:+4930397114279"><span data-i18n="kontakt.card1.telLabel">Büro / Tel.</span>030 39714279</a>
+            <a class="tel-line" href="tel:+4917655568676"><span data-i18n="kontakt.card1.mobilLabel">Mobil</span>0176 55568676</a>
           </div>
         </div>
 
@@ -903,51 +900,53 @@ h1,h2,h3,p{margin:0;}
           <div class="kontakt-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-12.7 7.2L3 20l1.4-5.1A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 10.3c0 3 2.7 5.7 5.7 5.7"/></svg>
           </div>
-          <h3>WhatsApp schreiben</h3>
-          <p class="kontakt-text">Schnelle Antworten direkt aufs Handy — schreiben Sie uns einfach Ihr Anliegen.</p>
-          <a class="btn btn-gold btn-block" href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a>
+          <h3 data-i18n="kontakt.card2.title">WhatsApp schreiben</h3>
+          <p class="kontakt-text" data-i18n="kontakt.card2.text">Schnelle Antworten direkt aufs Handy — schreiben Sie uns einfach Ihr Anliegen.</p>
+          <a class="btn btn-gold btn-block" href="https://wa.me/4917655568676" target="_blank" rel="noopener" data-i18n="kontakt.card2.button">WhatsApp schreiben</a>
         </div>
       </div>
 
       <!-- Kontaktformular -->
       <div class="kform-wrap reveal">
-        <h3>Nachricht senden</h3>
-        <p class="kform-sub">Füllen Sie das Formular aus — wir melden uns schnellstmöglich bei Ihnen.</p>
+        <h3 data-i18n="kontakt.form.title">Nachricht senden</h3>
+        <p class="kform-sub" data-i18n="kontakt.form.sub">Füllen Sie das Formular aus — wir melden uns schnellstmöglich bei Ihnen.</p>
         <form id="kform" action="https://formspree.io/f/xnjkqnbb" method="POST" novalidate>
           <div class="kform-row">
             <div class="kform-group">
-              <label for="kf-vorname">Vorname</label>
-              <input type="text" id="kf-vorname" name="vorname" placeholder="Ihr Vorname">
+              <label for="kf-vorname" data-i18n="kontakt.form.label.vorname">Vorname</label>
+              <input type="text" id="kf-vorname" name="vorname" placeholder="Ihr Vorname" data-i18n-placeholder="kontakt.form.placeholder.vorname">
             </div>
             <div class="kform-group">
-              <label for="kf-name">Nachname</label>
-              <input type="text" id="kf-name" name="nachname" placeholder="Ihr Nachname">
+              <label for="kf-name" data-i18n="kontakt.form.label.nachname">Nachname</label>
+              <input type="text" id="kf-name" name="nachname" placeholder="Ihr Nachname" data-i18n-placeholder="kontakt.form.placeholder.nachname">
             </div>
           </div>
           <div class="kform-row">
             <div class="kform-group">
-              <label for="kf-email">E-Mail <span class="kform-required">*</span></label>
-              <input type="email" id="kf-email" name="email" placeholder="ihre@email.de" required>
+              <label for="kf-email" data-i18n="kontakt.form.label.email">E-Mail <span class="kform-required">*</span></label>
+              <input type="email" id="kf-email" name="email" placeholder="ihre@email.de" required data-i18n-placeholder="kontakt.form.placeholder.email">
             </div>
             <div class="kform-group">
-              <label for="kf-tel">Telefonnummer</label>
-              <input type="tel" id="kf-tel" name="telefon" placeholder="030 / 0176 …">
+              <label for="kf-tel" data-i18n="kontakt.form.label.tel">Telefonnummer</label>
+              <input type="tel" id="kf-tel" name="telefon" placeholder="030 / 0176 …" data-i18n-placeholder="kontakt.form.placeholder.tel">
             </div>
           </div>
           <div class="kform-group">
-            <label for="kf-anliegen">Anliegen <span class="kform-required">*</span></label>
-            <textarea id="kf-anliegen" name="anliegen" placeholder="Beschreiben Sie kurz Ihr Anliegen …" required></textarea>
+            <label for="kf-anliegen" data-i18n="kontakt.form.label.anliegen">Anliegen <span class="kform-required">*</span></label>
+            <textarea id="kf-anliegen" name="anliegen" placeholder="Beschreiben Sie kurz Ihr Anliegen …" required data-i18n-placeholder="kontakt.form.placeholder.anliegen"></textarea>
           </div>
           <input type="hidden" name="_subject" value="Neue Anfrage – Golden Accounting">
           <input type="text" name="_gotcha" style="display:none">
-          <button type="submit" class="btn btn-gold">Nachricht senden</button>
-          <p class="kform-notice">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Bearbeitung Ihrer Anfrage zu.</p>
+          <button type="submit" class="btn btn-gold" data-i18n="kontakt.form.submit">Nachricht senden</button>
+          <p class="kform-notice" data-i18n="kontakt.form.notice">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Bearbeitung Ihrer Anfrage zu.</p>
         </form>
-        <div class="kform-success" id="kform-success">✓ Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns bald bei Ihnen.</div>
+        <div class="kform-success" id="kform-success" data-i18n="kontakt.form.success">✓ Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns bald bei Ihnen.</div>
       </div>
 
     </div>
   </section>
+
+</main>
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
@@ -958,95 +957,542 @@ h1,h2,h3,p{margin:0;}
           <span class="brand-mark"><span class="bar" aria-hidden="true"></span><span class="gL">G</span><span class="gR">A</span></span>
           <span class="brand-text">
             <span class="brand-name">Golden Accounting</span>
-            <span class="brand-sub">Buchhaltung · Büroservice · Bürgerservice</span>
+            <span class="brand-sub" data-i18n="header.brand.sub">Buchhaltung · Büroservice · Bürgerservice</span>
           </span>
         </a>
-        <p>Persönliche Buchhaltungs-, Büro- und Bürgerservices in Berlin — auf Deutsch, Türkisch und Englisch.</p>
+        <p data-i18n="footer.brand.text">Persönliche Buchhaltungs-, Büro- und Bürgerservices in Berlin — auf Deutsch, Türkisch und Englisch.</p>
       </div>
 
       <div>
-        <span class="footer-heading">Kontakt</span>
+        <span class="footer-heading" data-i18n="footer.heading.kontakt">Kontakt</span>
         <ul class="footer-list">
-          <li><a href="tel:+4930397114279">Tel. 030 39714279</a></li>
-          <li><a href="tel:+4917655568676">Mobil 0176 55568676</a></li>
+          <li><a href="tel:+4930397114279"><span data-i18n="footer.link.telPrefix">Tel.</span> 030 39714279</a></li>
+          <li><a href="tel:+4917655568676"><span data-i18n="footer.link.mobilPrefix">Mobil</span> 0176 55568676</a></li>
           <li><a href="mailto:Info@Golden-Accounting.de">Info@Golden-Accounting.de</a></li>
-          <li><a href="https://wa.me/4917655568676" target="_blank" rel="noopener">WhatsApp schreiben</a></li>
+          <li><a href="https://wa.me/4917655568676" target="_blank" rel="noopener" data-i18n="footer.link.whatsapp">WhatsApp schreiben</a></li>
           <li><span>Ottokarstraße 7, 12105 Berlin</span></li>
         </ul>
       </div>
 
       <div>
-        <span class="footer-heading">Rechtliches</span>
+        <span class="footer-heading" data-i18n="footer.heading.rechtliches">Rechtliches</span>
         <ul class="footer-list">
-          <li><button type="button" data-modal-open="modalImpressum">Impressum</button></li>
-          <li><button type="button" data-modal-open="modalDatenschutz">Datenschutz</button></li>
+          <li><button type="button" data-modal-open="modalImpressum" data-i18n="footer.link.impressum">Impressum</button></li>
+          <li><button type="button" data-modal-open="modalDatenschutz" data-i18n="footer.link.datenschutz">Datenschutz</button></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© <span id="yearNow">2026</span> Golden Accounting — Inh. Melisa Aylanc. Alle Rechte vorbehalten.</span>
+      <span>© <span id="yearNow">2026</span> Golden Accounting — Inh. Melisa Aylanc. <span data-i18n="footer.bottom.rights">Alle Rechte vorbehalten.</span></span>
       <span>www.Golden-Accounting.de</span>
     </div>
   </div>
 </footer>
 
 <!-- ===================== FLOATING WHATSAPP ===================== -->
-<a class="float-whatsapp" href="https://wa.me/4917655568676" target="_blank" rel="noopener" aria-label="WhatsApp schreiben">
+<a class="float-whatsapp" href="https://wa.me/4917655568676" target="_blank" rel="noopener" aria-label="WhatsApp schreiben" data-i18n-aria-label="kontakt.card2.button">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-12.7 7.2L3 20l1.4-5.1A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 10.3c0 3 2.7 5.7 5.7 5.7"/></svg>
 </a>
 
 <!-- ===================== MODALS ===================== -->
 <div class="modal-overlay" id="modalImpressum" role="dialog" aria-modal="true" aria-labelledby="impressumTitle">
   <div class="modal">
-    <button class="modal-close" data-modal-close aria-label="Schließen">
+    <button class="modal-close" data-modal-close aria-label="Schließen" data-i18n-aria-label="modal.close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
     </button>
-    <h2 id="impressumTitle">Impressum</h2>
-    <p><strong>Angaben gemäß § 5 TMG</strong></p>
+    <h2 id="impressumTitle" data-i18n="modal.impressum.title">Impressum</h2>
+    <p><strong data-i18n="modal.impressum.angaben">Angaben gemäß § 5 TMG</strong></p>
     <p>Golden Accounting<br>Inh. Melisa Aylanc<br>Ottokarstraße 7<br>12105 Berlin</p>
-    <h3>Kontakt</h3>
-    <p>Telefon: 030 39714279<br>Mobil: 0176 55568676<br>E-Mail: Info@Golden-Accounting.de</p>
-    <h3>Umsatzsteuer-ID</h3>
-    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE410383717</p>
-    <h3>Verantwortlich für den Inhalt</h3>
-    <p>Gemäß § 18 Abs. 2 MStV: Melisa Aylanc, Anschrift wie oben.</p>
-    <p class="modal-note">Diese Website dient ausschließlich der Information und ersetzt keine individuelle Rechts- oder Steuerberatung.</p>
+    <h3 data-i18n="modal.impressum.kontaktHeading">Kontakt</h3>
+    <p data-i18n="modal.impressum.kontaktText">Telefon: 030 39714279<br>Mobil: 0176 55568676<br>E-Mail: Info@Golden-Accounting.de</p>
+    <h3 data-i18n="modal.impressum.ustHeading">Umsatzsteuer-ID</h3>
+    <p data-i18n="modal.impressum.ustText">Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE410383717</p>
+    <h3 data-i18n="modal.impressum.verantwortlichHeading">Verantwortlich für den Inhalt</h3>
+    <p data-i18n="modal.impressum.verantwortlichText">Gemäß § 18 Abs. 2 MStV: Melisa Aylanc, Anschrift wie oben.</p>
+    <p class="modal-note" data-i18n="modal.impressum.note">Diese Website dient ausschließlich der Information und ersetzt keine individuelle Rechts- oder Steuerberatung.</p>
   </div>
 </div>
 
 <div class="modal-overlay" id="modalDatenschutz" role="dialog" aria-modal="true" aria-labelledby="datenschutzTitle">
   <div class="modal">
-    <button class="modal-close" data-modal-close aria-label="Schließen">
+    <button class="modal-close" data-modal-close aria-label="Schließen" data-i18n-aria-label="modal.close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg>
     </button>
-    <h2 id="datenschutzTitle">Datenschutzerklärung</h2>
+    <h2 id="datenschutzTitle" data-i18n="modal.datenschutz.title">Datenschutzerklärung</h2>
 
-    <h3>Verantwortlicher</h3>
-    <p>Golden Accounting, Inh. Melisa Aylanc, Ottokarstraße 7, 12105 Berlin, E-Mail: Info@Golden-Accounting.de</p>
+    <h3 data-i18n="modal.datenschutz.verantwortlicherHeading">Verantwortlicher</h3>
+    <p data-i18n="modal.datenschutz.verantwortlicherText">Golden Accounting, Inh. Melisa Aylanc, Ottokarstraße 7, 12105 Berlin, E-Mail: Info@Golden-Accounting.de</p>
 
-    <h3>Keine Cookies, kein Tracking</h3>
-    <p>Diese Website verwendet keine eigenen Cookies, keine Analyse- oder Tracking-Tools und kein Kontaktformular. Es werden durch uns keine personenbezogenen Daten über die Website erhoben oder gespeichert.</p>
+    <h3 data-i18n="modal.datenschutz.cookiesHeading">Keine Cookies, kein Tracking</h3>
+    <p data-i18n="modal.datenschutz.cookiesText">Diese Website verwendet keine eigenen Cookies, keine Analyse- oder Tracking-Tools und kein Kontaktformular. Es werden durch uns keine personenbezogenen Daten über die Website erhoben oder gespeichert.</p>
 
-    <h3>Google Maps</h3>
-    <p>Auf der Standortseite ist eine Karte von Google Maps eingebunden. Beim Aufruf dieser Seite stellt Ihr Browser eine Verbindung zu Servern von Google her, wodurch Google unter Umständen Daten wie Ihre IP-Adresse erhält. Mehr dazu in den Datenschutzhinweisen von Google.</p>
+    <h3 data-i18n="modal.datenschutz.mapsHeading">Google Maps</h3>
+    <p data-i18n="modal.datenschutz.mapsText">Auf der Standortseite ist eine Karte von Google Maps eingebunden. Beim Aufruf dieser Seite stellt Ihr Browser eine Verbindung zu Servern von Google her, wodurch Google unter Umständen Daten wie Ihre IP-Adresse erhält. Mehr dazu in den Datenschutzhinweisen von Google.</p>
 
-    <h3>Telefon und WhatsApp</h3>
-    <p>Wenn Sie uns über die angezeigten Telefonnummern oder über WhatsApp kontaktieren, gelten die Datenschutzbestimmungen Ihres jeweiligen Anbieters beziehungsweise von WhatsApp / Meta. Die dabei übermittelten Daten dienen ausschließlich der Bearbeitung Ihrer Anfrage.</p>
+    <h3 data-i18n="modal.datenschutz.telHeading">Telefon und WhatsApp</h3>
+    <p data-i18n="modal.datenschutz.telText">Wenn Sie uns über die angezeigten Telefonnummern oder über WhatsApp kontaktieren, gelten die Datenschutzbestimmungen Ihres jeweiligen Anbieters beziehungsweise von WhatsApp / Meta. Die dabei übermittelten Daten dienen ausschließlich der Bearbeitung Ihrer Anfrage.</p>
 
-    <h3>Hosting</h3>
-    <p>Diese Website wird bei STRATO gehostet. Beim Besuch der Seite verarbeitet der Hosting-Anbieter technisch notwendige Daten wie die IP-Adresse, um die Seite ausliefern zu können.</p>
+    <h3 data-i18n="modal.datenschutz.hostingHeading">Hosting</h3>
+    <p data-i18n="modal.datenschutz.hostingText">Diese Website wird bei STRATO gehostet. Beim Besuch der Seite verarbeitet der Hosting-Anbieter technisch notwendige Daten wie die IP-Adresse, um die Seite ausliefern zu können.</p>
 
-    <h3>Ihre Rechte</h3>
-    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten. Wenden Sie sich hierzu an die oben genannte E-Mail-Adresse.</p>
-
-    <p class="modal-note"></p>
+    <h3 data-i18n="modal.datenschutz.rechteHeading">Ihre Rechte</h3>
+    <p data-i18n="modal.datenschutz.rechteText">Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten. Wenden Sie sich hierzu an die oben genannte E-Mail-Adresse.</p>
   </div>
 </div>
 
 <script>
 (function(){
   "use strict";
+
+  /* ====================== I18N ====================== */
+  var I18N = {
+    de: {
+      meta: {
+        title: "Golden Accounting Berlin — Buchhaltung, Büroservice &amp; Bürgerservice | Melisa Aylanc",
+        description: "Golden Accounting in Berlin-Neukölln: Buchhaltung, Lohnbuchhaltung, Büroservice, Bürgerservice, Steuererklärungen, Übersetzungen und Anträge — persönlich betreut von Melisa Aylanc auf Deutsch, Türkisch und Englisch.",
+        ogTitle: "Golden Accounting Berlin — Buchhaltung, Büroservice &amp; Bürgerservice",
+        ogDescription: "Buchhaltung, Lohnbuchhaltung, Büroservice, Bürgerservice, Steuererklärungen, Übersetzungen und Anträge in Berlin — persönlich, mehrsprachig, zuverlässig."
+      },
+      skip: { link: "Zum Inhalt springen" },
+      header: {
+        brand: { sub: "Buchhaltung · Büroservice · Bürgerservice" },
+        nav: {
+          start: "Startseite",
+          leistungen: "Leistungen",
+          warum: "Warum wir",
+          bewertungen: "Bewertungen",
+          standort: "Standort",
+          kontakt: "Kontakt"
+        },
+        navToggle: { open: "Menü öffnen", close: "Menü schließen" }
+      },
+      hero: {
+        title: 'Ihre Zahlen. Ihre Anträge.<br><span class="accent">In guten Händen.</span>',
+        sub: "Golden Accounting begleitet Unternehmen, Selbstständige, Freiberufler und Privatkunden in Berlin durch Buchhaltung, Lohnabrechnung, Büroorganisation und Behördenangelegenheiten — persönlich betreut von Melisa Aylanc, auf Deutsch, Türkisch und Englisch.",
+        cta: { call: "Jetzt anrufen", whatsapp: "WhatsApp schreiben" },
+        meta: { hours: "Mo–Fr 9–14 Uhr · Termine nach Vereinbarung" },
+        scroll: "Entdecken"
+      },
+      trust: {
+        languages: "Deutsch · Türkçe · English",
+        appointment: "Termine nach Vereinbarung"
+      },
+      services: {
+        eyebrow: "Leistungen",
+        title: "Was wir für Sie übernehmen",
+        intro: "Von der laufenden Buchhaltung bis zum Antrag beim Amt — sieben Leistungsbereiche, ein Ansprechpartner.",
+        item1: { title: "Buchhaltung", text: "Laufende Finanzbuchhaltung, Belegerfassung und Auswertungen — ordentlich geführt und jederzeit nachvollziehbar für Ihr Unternehmen oder Ihre Selbstständigkeit." },
+        item2: { title: "Lohnbuchhaltung", text: "Lohn- und Gehaltsabrechnungen für Ihr Team, inklusive Meldungen an Sozialversicherung und Finanzamt — termingerecht und korrekt." },
+        item3: { title: "Büroservice", text: "Korrespondenz, Terminorganisation und allgemeine Büroaufgaben, die Ihnen den Kopf für Ihr eigentliches Geschäft freihalten." },
+        item4: { title: "Bürgerservice", text: "Begleitung und Unterstützung bei Behördengängen, Ämtern und Formalitäten — wir übernehmen die Kommunikation, die sonst Zeit und Nerven kostet." },
+        item5: { title: "Steuererklärungen", text: "Ausfüllhilfe für Private Steuererklärungen, sorgfältig vorbereitet und fristgerecht eingereicht." },
+        item6: { title: "Übersetzungen", text: "Übersetzung von Dokumenten und Schreiben zwischen Deutsch, Türkisch und Englisch — verständlich für Behörden wie für Sie selbst." },
+        item7: { title: "Anträge", text: "Ausfüllen, Zusammenstellen und Einreichen von Anträgen jeder Art — von der ersten Unterschrift bis zur Bestätigung." }
+      },
+      warum: {
+        eyebrow: "Warum Golden Accounting",
+        title: "Worauf Sie sich verlassen können",
+        intro: "Keine Warteschleifen, kein Sachbearbeiter-Wechsel — fünf Gründe, warum Kundinnen und Kunden bei uns bleiben.",
+        row1: { title: "Eine feste Ansprechpartnerin", text: "Keine Warteschleife, kein Wechsel der Sachbearbeiterin — Melisa Aylanc kennt Ihre Unterlagen und Ihre Situation persönlich." },
+        row2: { title: "Drei Sprachen", text: "Beratung auf Deutsch, Türkisch und Englisch, klar erklärt statt in Amtsdeutsch." },
+        row3: { title: "Alles aus einer Hand", text: "Buchhaltung, Büroservice und Behördengänge bei einem Ansprechpartner, statt bei drei verschiedenen Dienstleistern." },
+        row4: { title: "Sorgfalt mit sensiblen Unterlagen", text: "Ihre Belege, Verträge und persönlichen Dokumente werden vertraulich und sorgfältig behandelt." },
+        row5: { title: "Kurze Wege", text: "Telefon, WhatsApp oder ein persönlicher Termin in der Ottokarstraße — Antworten kommen schnell, nicht erst nach Tagen." }
+      },
+      bewertungen: {
+        eyebrow: "Bewertungen",
+        title: "Was Kundinnen und Kunden sagen",
+        rating: "5,0 von 5 — basierend auf unseren Kundenstimmen",
+        review1: { quote: "„Endlich jemand, der meine Lohnabrechnungen pünktlich und ohne Rückfragen erledigt — und das auch auf Türkisch erklärt.“", role: "Café-Inhaberin, Neukölln" },
+        review2: { quote: "„Meine erste Steuererklärung als Selbstständiger war für mich ein Albtraum. Frau Aylanc hat alles geordnet und verständlich gemacht.“", role: "Freelancer, Webdesign" },
+        review3: { quote: "„Beim Antrag fürs Kindergeld hätte ich allein keinen Durchblick gehabt. Hier wurde alles erledigt, ich musste nur unterschreiben.“", role: "Privatkundin" },
+        review4: { quote: "„Der Büroservice nimmt mir die ganze Verwaltung ab, sodass ich mich auf meine Patienten konzentrieren kann.“", role: "Physiotherapiepraxis" },
+        review5: { quote: "„Die Übersetzung meiner Unterlagen war schnell, sauber und genau das, was die Behörde verlangt hat.“", role: "Privatkundin" },
+        prev: "Vorherige Bewertung",
+        next: "Nächste Bewertung"
+      },
+      standort: {
+        eyebrow: "Standort",
+        title: "Besuchen Sie uns in Berlin",
+        label: { adresse: "Adresse", oeffnungszeiten: "Öffnungszeiten", sprachen: "Sprachen", nahverkehr: "Nahverkehr" },
+        text: {
+          oeffnungszeiten: "Montag bis Freitag, 09:00 – 14:00 Uhr<br>Termine nach Vereinbarung",
+          sprachen: "Beratung und Betreuung auf Deutsch, Türkisch und Englisch.",
+          nahverkehr: "U-Bahnhof Ullsteinstraße (U6) liegt in der Nähe. Mit dem Bus erreichen Sie uns über die Haltestelle Attilaplatz (Linien 170, 184, 246), mit der S-Bahn über den Bahnhof Attilastraße (S2)."
+        },
+        status: { open: "Jetzt geöffnet", closed: "Aktuell geschlossen — Termine nach Vereinbarung", loading: "Öffnungszeiten werden geprüft …" },
+        map: { title: "Standort Golden Accounting auf Google Maps" }
+      },
+      kontakt: {
+        eyebrow: "Kontakt",
+        title: "Kontakt aufnehmen",
+        intro: "Rufen Sie an oder schreiben Sie uns auf WhatsApp — wir antworten schnell, persönlich und in der Sprache, die Ihnen am liebsten ist.",
+        card1: { title: "Jetzt anrufen", text: "Erreichbar im Büro und mobil — wählen Sie einfach die passende Nummer.", telLabel: "Büro / Tel.", mobilLabel: "Mobil" },
+        card2: { title: "WhatsApp schreiben", text: "Schnelle Antworten direkt aufs Handy — schreiben Sie uns einfach Ihr Anliegen.", button: "WhatsApp schreiben" },
+        form: {
+          title: "Nachricht senden",
+          sub: "Füllen Sie das Formular aus — wir melden uns schnellstmöglich bei Ihnen.",
+          label: { vorname: "Vorname", nachname: "Nachname", email: 'E-Mail <span class="kform-required">*</span>', tel: "Telefonnummer", anliegen: 'Anliegen <span class="kform-required">*</span>' },
+          placeholder: { vorname: "Ihr Vorname", nachname: "Ihr Nachname", email: "ihre@email.de", tel: "030 / 0176 …", anliegen: "Beschreiben Sie kurz Ihr Anliegen …" },
+          submit: "Nachricht senden",
+          submitting: "Wird gesendet …",
+          error: "Fehler – bitte erneut versuchen",
+          notice: "Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Bearbeitung Ihrer Anfrage zu.",
+          success: "✓ Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns bald bei Ihnen."
+        }
+      },
+      footer: {
+        brand: { text: "Persönliche Buchhaltungs-, Büro- und Bürgerservices in Berlin — auf Deutsch, Türkisch und Englisch." },
+        heading: { kontakt: "Kontakt", rechtliches: "Rechtliches" },
+        link: { telPrefix: "Tel.", mobilPrefix: "Mobil", whatsapp: "WhatsApp schreiben", impressum: "Impressum", datenschutz: "Datenschutz" },
+        bottom: { rights: "Alle Rechte vorbehalten." }
+      },
+      modal: {
+        close: "Schließen",
+        impressum: {
+          title: "Impressum",
+          angaben: "Angaben gemäß § 5 TMG",
+          kontaktHeading: "Kontakt",
+          kontaktText: "Telefon: 030 39714279<br>Mobil: 0176 55568676<br>E-Mail: Info@Golden-Accounting.de",
+          ustHeading: "Umsatzsteuer-ID",
+          ustText: "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE410383717",
+          verantwortlichHeading: "Verantwortlich für den Inhalt",
+          verantwortlichText: "Gemäß § 18 Abs. 2 MStV: Melisa Aylanc, Anschrift wie oben.",
+          note: "Diese Website dient ausschließlich der Information und ersetzt keine individuelle Rechts- oder Steuerberatung."
+        },
+        datenschutz: {
+          title: "Datenschutzerklärung",
+          verantwortlicherHeading: "Verantwortlicher",
+          verantwortlicherText: "Golden Accounting, Inh. Melisa Aylanc, Ottokarstraße 7, 12105 Berlin, E-Mail: Info@Golden-Accounting.de",
+          cookiesHeading: "Keine Cookies, kein Tracking",
+          cookiesText: "Diese Website verwendet keine eigenen Cookies, keine Analyse- oder Tracking-Tools und kein Kontaktformular. Es werden durch uns keine personenbezogenen Daten über die Website erhoben oder gespeichert.",
+          mapsHeading: "Google Maps",
+          mapsText: "Auf der Standortseite ist eine Karte von Google Maps eingebunden. Beim Aufruf dieser Seite stellt Ihr Browser eine Verbindung zu Servern von Google her, wodurch Google unter Umständen Daten wie Ihre IP-Adresse erhält. Mehr dazu in den Datenschutzhinweisen von Google.",
+          telHeading: "Telefon und WhatsApp",
+          telText: "Wenn Sie uns über die angezeigten Telefonnummern oder über WhatsApp kontaktieren, gelten die Datenschutzbestimmungen Ihres jeweiligen Anbieters beziehungsweise von WhatsApp / Meta. Die dabei übermittelten Daten dienen ausschließlich der Bearbeitung Ihrer Anfrage.",
+          hostingHeading: "Hosting",
+          hostingText: "Diese Website wird bei STRATO gehostet. Beim Besuch der Seite verarbeitet der Hosting-Anbieter technisch notwendige Daten wie die IP-Adresse, um die Seite ausliefern zu können.",
+          rechteHeading: "Ihre Rechte",
+          rechteText: "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten. Wenden Sie sich hierzu an die oben genannte E-Mail-Adresse."
+        }
+      }
+    },
+    en: {
+      meta: {
+        title: "Golden Accounting Berlin — Bookkeeping, Office &amp; Citizen Services | Melisa Aylanc",
+        description: "Golden Accounting in Berlin-Neukölln: bookkeeping, payroll, office services, citizen services, tax return assistance, translations and applications — personally handled by Melisa Aylanc in German, Turkish and English.",
+        ogTitle: "Golden Accounting Berlin — Bookkeeping, Office &amp; Citizen Services",
+        ogDescription: "Bookkeeping, payroll, office services, citizen services, tax return assistance, translations and applications in Berlin — personal, multilingual, reliable."
+      },
+      skip: { link: "Skip to content" },
+      header: {
+        brand: { sub: "Bookkeeping · Office Services · Citizen Services" },
+        nav: {
+          start: "Home",
+          leistungen: "Services",
+          warum: "Why Us",
+          bewertungen: "Reviews",
+          standort: "Location",
+          kontakt: "Contact"
+        },
+        navToggle: { open: "Open menu", close: "Close menu" }
+      },
+      hero: {
+        title: 'Your numbers. Your applications.<br><span class="accent">In good hands.</span>',
+        sub: "Golden Accounting supports companies, the self-employed, freelancers and private clients in Berlin with bookkeeping, payroll, office organisation and dealings with public authorities — personally handled by Melisa Aylanc, in German, Turkish and English.",
+        cta: { call: "Call now", whatsapp: "Message on WhatsApp" },
+        meta: { hours: "Mon–Fri 9am–2pm · Appointments by arrangement" },
+        scroll: "Discover"
+      },
+      trust: {
+        languages: "German · Turkish · English",
+        appointment: "Appointments by arrangement"
+      },
+      services: {
+        eyebrow: "Services",
+        title: "What we take care of for you",
+        intro: "From ongoing bookkeeping to applications with the authorities — seven service areas, one point of contact.",
+        item1: { title: "Bookkeeping", text: "Ongoing financial bookkeeping, receipt management and reports — kept in order and fully traceable at any time, for your company or self-employment." },
+        item2: { title: "Payroll", text: "Payroll and salary statements for your team, including notifications to social insurance and the tax office — on time and correct." },
+        item3: { title: "Office Services", text: "Correspondence, appointment scheduling and general office tasks, so you can keep your mind on your actual business." },
+        item4: { title: "Citizen Services", text: "Support and assistance with visits to authorities, offices and formalities — we handle the communication that otherwise costs time and nerves." },
+        item5: { title: "Tax Returns", text: "Assistance completing private tax returns, carefully prepared and submitted on time." },
+        item6: { title: "Translations", text: "Translation of documents and letters between German, Turkish and English — clear for authorities and for you." },
+        item7: { title: "Applications", text: "Filling out, compiling and submitting applications of every kind — from the first signature to confirmation." }
+      },
+      warum: {
+        eyebrow: "Why Golden Accounting",
+        title: "What you can rely on",
+        intro: "No waiting on hold, no changing case handlers — five reasons why clients stay with us.",
+        row1: { title: "One dedicated contact person", text: "No waiting on hold, no change of case handler — Melisa Aylanc knows your documents and your situation personally." },
+        row2: { title: "Three languages", text: "Advice in German, Turkish and English, explained clearly instead of in official jargon." },
+        row3: { title: "Everything from one source", text: "Bookkeeping, office services and dealings with authorities through one point of contact, instead of three different providers." },
+        row4: { title: "Care with sensitive documents", text: "Your receipts, contracts and personal documents are handled confidentially and carefully." },
+        row5: { title: "Short distances", text: "Phone, WhatsApp or a personal appointment on Ottokarstraße — answers come quickly, not after days." }
+      },
+      bewertungen: {
+        eyebrow: "Reviews",
+        title: "What our clients say",
+        rating: "5.0 out of 5 — based on our clients' feedback",
+        review1: { quote: "\u201eFinally someone who handles my payroll on time and without back-and-forth questions — and explains it in Turkish too.\u201c", role: "Café owner, Neukölln" },
+        review2: { quote: "\u201eMy first tax return as a self-employed person was a nightmare for me. Ms. Aylanc organised everything and made it understandable.\u201c", role: "Freelancer, web design" },
+        review3: { quote: "\u201eI wouldn't have had a clue with the child benefit application on my own. Everything was handled, I only had to sign.\u201c", role: "Private client" },
+        review4: { quote: "\u201eThe office service takes all the administration off my hands, so I can focus on my patients.\u201c", role: "Physiotherapy practice" },
+        review5: { quote: "\u201eThe translation of my documents was fast, clean and exactly what the authority required.\u201c", role: "Private client" },
+        prev: "Previous review",
+        next: "Next review"
+      },
+      standort: {
+        eyebrow: "Location",
+        title: "Visit us in Berlin",
+        label: { adresse: "Address", oeffnungszeiten: "Opening hours", sprachen: "Languages", nahverkehr: "Public transport" },
+        text: {
+          oeffnungszeiten: "Monday to Friday, 9:00 am – 2:00 pm<br>Appointments by arrangement",
+          sprachen: "Advice and support in German, Turkish and English.",
+          nahverkehr: "U-Bahn station Ullsteinstraße (U6) is nearby. By bus you can reach us via the Attilaplatz stop (lines 170, 184, 246), by S-Bahn via Attilastraße station (S2)."
+        },
+        status: { open: "Open now", closed: "Currently closed — appointments by arrangement", loading: "Checking opening hours …" },
+        map: { title: "Golden Accounting location on Google Maps" }
+      },
+      kontakt: {
+        eyebrow: "Contact",
+        title: "Get in touch",
+        intro: "Call us or write to us on WhatsApp — we reply quickly, personally, and in the language you prefer.",
+        card1: { title: "Call now", text: "Reachable at the office and on mobile — just choose the right number.", telLabel: "Office / Tel.", mobilLabel: "Mobile" },
+        card2: { title: "Message on WhatsApp", text: "Fast replies straight to your phone — just write us your request.", button: "Message on WhatsApp" },
+        form: {
+          title: "Send a message",
+          sub: "Fill out the form — we'll get back to you as soon as possible.",
+          label: { vorname: "First name", nachname: "Last name", email: 'Email <span class="kform-required">*</span>', tel: "Phone number", anliegen: 'Message <span class="kform-required">*</span>' },
+          placeholder: { vorname: "Your first name", nachname: "Your last name", email: "your@email.com", tel: "030 / 0176 …", anliegen: "Briefly describe your request …" },
+          submit: "Send message",
+          submitting: "Sending …",
+          error: "Error – please try again",
+          notice: "By submitting, you agree to the processing of your data to handle your request.",
+          success: "✓ Thank you! Your message has been sent. We'll be in touch soon."
+        }
+      },
+      footer: {
+        brand: { text: "Personal bookkeeping, office and citizen services in Berlin — in German, Turkish and English." },
+        heading: { kontakt: "Contact", rechtliches: "Legal" },
+        link: { telPrefix: "Tel.", mobilPrefix: "Mobile", whatsapp: "Message on WhatsApp", impressum: "Imprint", datenschutz: "Privacy Policy" },
+        bottom: { rights: "All rights reserved." }
+      },
+      modal: {
+        close: "Close",
+        impressum: {
+          title: "Imprint",
+          angaben: "Information according to § 5 TMG",
+          kontaktHeading: "Contact",
+          kontaktText: "Phone: 030 39714279<br>Mobile: 0176 55568676<br>Email: Info@Golden-Accounting.de",
+          ustHeading: "VAT ID",
+          ustText: "VAT identification number according to § 27a German VAT Act: DE410383717",
+          verantwortlichHeading: "Responsible for content",
+          verantwortlichText: "According to § 18 para. 2 MStV: Melisa Aylanc, address as above.",
+          note: "This website is for information purposes only and does not replace individual legal or tax advice."
+        },
+        datenschutz: {
+          title: "Privacy Policy",
+          verantwortlicherHeading: "Controller",
+          verantwortlicherText: "Golden Accounting, owner Melisa Aylanc, Ottokarstraße 7, 12105 Berlin, email: Info@Golden-Accounting.de",
+          cookiesHeading: "No cookies, no tracking",
+          cookiesText: "This website does not use its own cookies, no analytics or tracking tools, and no contact form. We do not collect or store any personal data via the website.",
+          mapsHeading: "Google Maps",
+          mapsText: "A Google Maps map is embedded on the location page. When you visit this page, your browser establishes a connection to Google's servers, through which Google may receive data such as your IP address. More information can be found in Google's privacy policy.",
+          telHeading: "Phone and WhatsApp",
+          telText: "If you contact us via the displayed phone numbers or via WhatsApp, the privacy policy of your respective provider or of WhatsApp / Meta applies. The data transmitted is used exclusively to process your request.",
+          hostingHeading: "Hosting",
+          hostingText: "This website is hosted by STRATO. When you visit the site, the hosting provider processes technically necessary data such as the IP address in order to deliver the page.",
+          rechteHeading: "Your rights",
+          rechteText: "You have the right to information, correction, deletion and restriction of the processing of your data. Please contact the email address stated above."
+        }
+      }
+    },
+    tr: {
+      meta: {
+        title: "Golden Accounting Berlin — Muhasebe, Ofis ve Vatandaşlık Hizmetleri | Melisa Aylanc",
+        description: "Berlin-Neukölln'de Golden Accounting: Muhasebe, bordro, ofis hizmetleri, vatandaşlık hizmetleri, vergi beyannamesi yardımı, çeviri ve başvurular — Melisa Aylanc tarafından Almanca, Türkçe ve İngilizce olarak kişisel destek.",
+        ogTitle: "Golden Accounting Berlin — Muhasebe, Ofis ve Vatandaşlık Hizmetleri",
+        ogDescription: "Berlin'de muhasebe, bordro, ofis hizmetleri, vatandaşlık hizmetleri, vergi beyannamesi yardımı, çeviri ve başvurular — kişisel, çok dilli, güvenilir."
+      },
+      skip: { link: "İçeriğe geç" },
+      header: {
+        brand: { sub: "Muhasebe · Ofis Hizmetleri · Vatandaşlık Hizmetleri" },
+        nav: {
+          start: "Ana Sayfa",
+          leistungen: "Hizmetler",
+          warum: "Neden Biz",
+          bewertungen: "Değerlendirmeler",
+          standort: "Konum",
+          kontakt: "İletişim"
+        },
+        navToggle: { open: "Menüyü aç", close: "Menüyü kapat" }
+      },
+      hero: {
+        title: 'Sayılarınız. Başvurularınız.<br><span class="accent">Güvenilir ellerde.</span>',
+        sub: "Golden Accounting, Berlin'de şirketlere, serbest çalışanlara, freelancerlara ve özel müşterilere muhasebe, bordro, ofis organizasyonu ve resmi işlemler konusunda eşlik eder — Melisa Aylanc tarafından Almanca, Türkçe ve İngilizce olarak kişisel destek sağlanır.",
+        cta: { call: "Şimdi ara", whatsapp: "WhatsApp'tan yaz" },
+        meta: { hours: "Pzt–Cuma 09–14 · Randevu ile" },
+        scroll: "Keşfet"
+      },
+      trust: {
+        languages: "Almanca · Türkçe · İngilizce",
+        appointment: "Randevu ile görüşme"
+      },
+      services: {
+        eyebrow: "Hizmetler",
+        title: "Sizin için üstlendiklerimiz",
+        intro: "Düzenli muhasebeden resmi kurumlara yapılan başvurulara kadar — yedi hizmet alanı, bir muhatap.",
+        item1: { title: "Muhasebe", text: "Düzenli finansal muhasebe, belge kaydı ve raporlar — şirketiniz veya serbest çalışmanız için her zaman düzenli ve takip edilebilir şekilde tutulur." },
+        item2: { title: "Bordro", text: "Ekibiniz için bordro ve maaş hesaplamaları, sosyal sigorta ve vergi dairesine bildirimler dahil — zamanında ve doğru şekilde." },
+        item3: { title: "Ofis Hizmetleri", text: "Yazışmalar, randevu organizasyonu ve genel ofis işleri — esas işinize odaklanmanız için kafanızı rahatlatır." },
+        item4: { title: "Vatandaşlık Hizmetleri", text: "Resmi dairelerle, kurumlarla ve formalitelerle ilgili eşlik ve destek — sizin zaman ve sinir kaybetmenize sebep olan iletişimi biz üstleniriz." },
+        item5: { title: "Vergi Beyannameleri", text: "Özel vergi beyannameleri için doldurma yardımı, dikkatle hazırlanır ve süresi içinde gönderilir." },
+        item6: { title: "Çeviriler", text: "Almanca, Türkçe ve İngilizce arasında belge ve yazışmaların çevirisi — kurumlar için olduğu gibi sizin için de anlaşılır şekilde." },
+        item7: { title: "Başvurular", text: "Her türlü başvurunun doldurulması, hazırlanması ve gönderilmesi — ilk imzadan onaya kadar." }
+      },
+      warum: {
+        eyebrow: "Neden Golden Accounting",
+        title: "Güvenebileceğiniz noktalar",
+        intro: "Bekleme müziği yok, danışman değişikliği yok — müşterilerimizin bizimle kalmasının beş nedeni.",
+        row1: { title: "Sabit bir muhatap", text: "Bekleme müziği yok, danışman değişikliği yok — Melisa Aylanc belgelerinizi ve durumunuzu kişisel olarak tanır." },
+        row2: { title: "Üç dil", text: "Resmi dil yerine açıkça anlatılan, Almanca, Türkçe ve İngilizce danışmanlık." },
+        row3: { title: "Her şey bir elden", text: "Üç farklı hizmet sağlayıcı yerine tek bir muhatap üzerinden muhasebe, ofis hizmetleri ve resmi işlemler." },
+        row4: { title: "Hassas belgelerle dikkatli çalışma", text: "Fişleriniz, sözleşmeleriniz ve kişisel belgeleriniz gizli ve dikkatli şekilde işlenir." },
+        row5: { title: "Kısa yollar", text: "Telefon, WhatsApp veya Ottokarstraße'deki kişisel bir randevu — cevaplar günler sonra değil, hızlı gelir." }
+      },
+      bewertungen: {
+        eyebrow: "Değerlendirmeler",
+        title: "Müşterilerimiz ne diyor",
+        rating: "5,0 üzerinden 5 — müşteri yorumlarımıza dayanarak",
+        review1: { quote: "„Sonunda bordromu zamanında ve soru sormadan halleden, üstelik Türkçe açıklayan birini buldum.“", role: "Kafe sahibi, Neukölln" },
+        review2: { quote: "„Serbest çalışan olarak ilk vergi beyannamem benim için bir kabustu. Bayan Aylanc her şeyi düzenledi ve anlaşılır hale getirdi.“", role: "Freelancer, web tasarım" },
+        review3: { quote: "„Çocuk parası başvurusunda tek başıma hiçbir şey anlayamazdım. Burada her şey halledildi, sadece imza atmam gerekti.“", role: "Özel müşteri" },
+        review4: { quote: "„Ofis hizmeti bütün idari işleri benden alıyor, böylece hastalarıma odaklanabiliyorum.“", role: "Fizyoterapi muayenehanesi" },
+        review5: { quote: "„Belgelerimin çevirisi hızlı, temizdi ve kurumun istediği tam olarak buydu.“", role: "Özel müşteri" },
+        prev: "Önceki değerlendirme",
+        next: "Sonraki değerlendirme"
+      },
+      standort: {
+        eyebrow: "Konum",
+        title: "Berlin'de bizi ziyaret edin",
+        label: { adresse: "Adres", oeffnungszeiten: "Çalışma saatleri", sprachen: "Diller", nahverkehr: "Toplu taşıma" },
+        text: {
+          oeffnungszeiten: "Pazartesi'den Cuma'ya, 09:00 – 14:00<br>Randevu ile görüşme",
+          sprachen: "Almanca, Türkçe ve İngilizce olarak danışmanlık ve destek.",
+          nahverkehr: "U-Bahn istasyonu Ullsteinstraße (U6) yakındadır. Otobüsle Attilaplatz durağı (170, 184, 246 hatları), S-Bahn ile Attilastraße istasyonu (S2) üzerinden bize ulaşabilirsiniz."
+        },
+        status: { open: "Şu anda açık", closed: "Şu anda kapalı — randevu ile görüşme", loading: "Çalışma saatleri kontrol ediliyor …" },
+        map: { title: "Google Haritalar'da Golden Accounting konumu" }
+      },
+      kontakt: {
+        eyebrow: "İletişim",
+        title: "Bizimle iletişime geçin",
+        intro: "Arayın veya WhatsApp'tan yazın — hızlı, kişisel ve tercih ettiğiniz dilde cevap veriyoruz.",
+        card1: { title: "Şimdi ara", text: "Ofiste ve mobil olarak erişilebilir — uygun numarayı seçmeniz yeterli.", telLabel: "Ofis / Tel.", mobilLabel: "Mobil" },
+        card2: { title: "WhatsApp'tan yaz", text: "Telefonunuza doğrudan hızlı cevaplar — talebinizi bize kısaca yazmanız yeterli.", button: "WhatsApp'tan yaz" },
+        form: {
+          title: "Mesaj gönder",
+          sub: "Formu doldurun — size en kısa sürede dönüş yapacağız.",
+          label: { vorname: "Ad", nachname: "Soyad", email: 'E-posta <span class="kform-required">*</span>', tel: "Telefon numarası", anliegen: 'Talebiniz <span class="kform-required">*</span>' },
+          placeholder: { vorname: "Adınız", nachname: "Soyadınız", email: "eposta@ornek.de", tel: "030 / 0176 …", anliegen: "Talebinizi kısaca açıklayın …" },
+          submit: "Mesaj gönder",
+          submitting: "Gönderiliyor …",
+          error: "Hata – lütfen tekrar deneyin",
+          notice: "Göndererek, talebinizin işlenmesi için verilerinizin işlenmesini kabul edersiniz.",
+          success: "✓ Teşekkürler! Mesajınız gönderildi. Yakında sizinle iletişime geçeceğiz."
+        }
+      },
+      footer: {
+        brand: { text: "Berlin'de kişisel muhasebe, ofis ve vatandaşlık hizmetleri — Almanca, Türkçe ve İngilizce." },
+        heading: { kontakt: "İletişim", rechtliches: "Yasal" },
+        link: { telPrefix: "Tel.", mobilPrefix: "Mobil", whatsapp: "WhatsApp'tan yaz", impressum: "Site Bilgisi", datenschutz: "Gizlilik Politikası" },
+        bottom: { rights: "Tüm hakları saklıdır." }
+      },
+      modal: {
+        close: "Kapat",
+        impressum: {
+          title: "Site Bilgisi",
+          angaben: "§ 5 TMG'ye göre bilgiler",
+          kontaktHeading: "İletişim",
+          kontaktText: "Telefon: 030 39714279<br>Mobil: 0176 55568676<br>E-posta: Info@Golden-Accounting.de",
+          ustHeading: "KDV Numarası",
+          ustText: "§ 27a Alman KDV Kanunu'na göre KDV kimlik numarası: DE410383717",
+          verantwortlichHeading: "İçerikten sorumlu",
+          verantwortlichText: "§ 18 Abs. 2 MStV'ye göre: Melisa Aylanc, adres yukarıdaki gibidir.",
+          note: "Bu web sitesi sadece bilgilendirme amaçlıdır ve bireysel hukuki veya vergi danışmanlığının yerini tutmaz."
+        },
+        datenschutz: {
+          title: "Gizlilik Politikası",
+          verantwortlicherHeading: "Veri Sorumlusu",
+          verantwortlicherText: "Golden Accounting, sahibi Melisa Aylanc, Ottokarstraße 7, 12105 Berlin, e-posta: Info@Golden-Accounting.de",
+          cookiesHeading: "Çerez yok, takip yok",
+          cookiesText: "Bu web sitesi kendi çerezlerini, herhangi bir analiz veya takip aracını ve iletişim formunu kullanmamaktadır. Web sitesi üzerinden tarafımızca herhangi bir kişisel veri toplanmamakta veya saklanmamaktadır.",
+          mapsHeading: "Google Haritalar",
+          mapsText: "Konum sayfasında bir Google Haritalar haritası yerleştirilmiştir. Bu sayfayı ziyaret ettiğinizde tarayıcınız Google sunucularıyla bağlantı kurar ve bu sayede Google, IP adresiniz gibi verileri alabilir. Daha fazla bilgi Google'ın gizlilik bildiriminde bulunabilir.",
+          telHeading: "Telefon ve WhatsApp",
+          telText: "Bizimle görüntülenen telefon numaraları veya WhatsApp üzerinden iletişime geçtiğinizde, ilgili sağlayıcınızın veya WhatsApp / Meta'nın gizlilik politikası geçerlidir. İletilen veriler yalnızca talebinizin işlenmesi amacıyla kullanılır.",
+          hostingHeading: "Barındırma",
+          hostingText: "Bu web sitesi STRATO tarafından barındırılmaktadır. Siteyi ziyaret ettiğinizde, barındırma sağlayıcısı sayfayı sunabilmek için IP adresi gibi teknik olarak gerekli verileri işler.",
+          rechteHeading: "Haklarınız",
+          rechteText: "Verilerinizin işlenmesi hakkında bilgi alma, düzeltme, silme ve sınırlama hakkına sahipsiniz. Bunun için lütfen yukarıda belirtilen e-posta adresiyle iletişime geçin."
+        }
+      }
+    }
+  };
+
+  var currentLang = 'de';
+
+  function getPath(obj, path){
+    return path.split('.').reduce(function(o,k){ return (o && o[k] !== undefined) ? o[k] : undefined; }, obj);
+  }
+
+  function t(key){
+    var val = getPath(I18N[currentLang], key);
+    if(val === undefined){ val = getPath(I18N.de, key); }
+    return val !== undefined ? val : '';
+  }
+
+  function applyLang(lang){
+    if(!I18N[lang]){ lang = 'de'; }
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    try{ localStorage.setItem('ga_lang', lang); }catch(e){}
+
+    var metaTitle = t('meta.title');
+    if(metaTitle){ document.title = metaTitle.replace(/&amp;/g,'&'); }
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if(metaDesc){ metaDesc.setAttribute('content', t('meta.description')); }
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if(ogTitle){ ogTitle.setAttribute('content', t('meta.ogTitle').replace(/&amp;/g,'&')); }
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if(ogDesc){ ogDesc.setAttribute('content', t('meta.ogDescription')); }
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n'));
+      if(val !== ''){ el.innerHTML = val; }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n-placeholder'));
+      if(val !== ''){ el.setAttribute('placeholder', val); }
+    });
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n-aria-label'));
+      if(val !== ''){ el.setAttribute('aria-label', val); }
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n-title'));
+      if(val !== ''){ el.setAttribute('title', val); }
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(function(btn){
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+    });
+
+    if(typeof updateStatus === 'function'){ updateStatus(); }
+    if(typeof updateNavToggleLabel === 'function'){ updateNavToggleLabel(); }
+  }
 
   /* ---------- Header scroll state ---------- */
   var header = document.getElementById('siteHeader');
@@ -1061,15 +1507,20 @@ h1,h2,h3,p{margin:0;}
   var navToggle = document.getElementById('navToggle');
   var navMenu = document.getElementById('navMenu');
 
+  function updateNavToggleLabel(){
+    var isOpen = navMenu.classList.contains('is-open');
+    var key = isOpen ? 'header.navToggle.close' : 'header.navToggle.open';
+    navToggle.setAttribute('aria-label', t(key));
+  }
   function closeMenu(){
     navMenu.classList.remove('is-open');
     navToggle.setAttribute('aria-expanded','false');
-    navToggle.setAttribute('aria-label','Menü öffnen');
+    updateNavToggleLabel();
   }
   function openMenu(){
     navMenu.classList.add('is-open');
     navToggle.setAttribute('aria-expanded','true');
-    navToggle.setAttribute('aria-label','Menü schließen');
+    updateNavToggleLabel();
   }
   navToggle.addEventListener('click', function(){
     var isOpen = navMenu.classList.contains('is-open');
@@ -1142,7 +1593,7 @@ h1,h2,h3,p{margin:0;}
     var isOpen = isWeekday && hour >= 9 && hour < 14;
     pill.classList.toggle('status-open', isOpen);
     pill.classList.toggle('status-closed', !isOpen);
-    text.textContent = isOpen ? 'Jetzt geöffnet' : 'Aktuell geschlossen — Termine nach Vereinbarung';
+    text.textContent = isOpen ? t('standort.status.open') : t('standort.status.closed');
   }
   updateStatus();
 
@@ -1180,13 +1631,23 @@ h1,h2,h3,p{margin:0;}
   var yearEl = document.getElementById('yearNow');
   if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
 
+  /* ---------- Language switch ---------- */
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      applyLang(btn.getAttribute('data-lang'));
+    });
+  });
+  var savedLang = 'de';
+  try{ savedLang = localStorage.getItem('ga_lang') || 'de'; }catch(e){}
+  applyLang(savedLang);
+
   /* ---------- Kontaktformular Formspree ---------- */
   var kform = document.getElementById('kform');
   if(kform){
     kform.addEventListener('submit', function(e){
       e.preventDefault();
       var btn = kform.querySelector('button[type="submit"]');
-      btn.textContent = 'Wird gesendet …';
+      btn.textContent = t('kontakt.form.submitting');
       btn.disabled = true;
       fetch(kform.action, {
         method: 'POST',
@@ -1197,132 +1658,15 @@ h1,h2,h3,p{margin:0;}
           kform.style.display = 'none';
           document.getElementById('kform-success').style.display = 'block';
         } else {
-          btn.textContent = 'Fehler – bitte erneut versuchen';
+          btn.textContent = t('kontakt.form.error');
           btn.disabled = false;
         }
       }).catch(function(){
-        btn.textContent = 'Fehler – bitte erneut versuchen';
+        btn.textContent = t('kontakt.form.error');
         btn.disabled = false;
       });
     });
   }
-
-  /* ---------- Sprachumschalter ---------- */
-  var translations = {
-    de: {
-      "nav-start":"Startseite","nav-leistungen":"Leistungen","nav-warum":"Warum wir",
-      "nav-bewertungen":"Bewertungen","nav-standort":"Standort","nav-kontakt":"Kontakt",
-      "hero-eyebrow":"Buchhaltung · Büroservice · Bürgerservice",
-      "hero-h1":"Ihre Zahlen. Ihre Anträge.<br><span class='accent'>In guten Händen.</span>",
-      "hero-sub":"Golden Accounting begleitet Unternehmen, Selbstständige, Freiberufler und Privatkunden in Berlin durch Buchhaltung, Lohnabrechnung, Büroorganisation und Behördenangelegenheiten — persönlich betreut von Melisa Aylanc, auf Deutsch, Türkisch und Englisch.",
-      "hero-btn-call":"Jetzt anrufen","hero-btn-wa":"WhatsApp schreiben",
-      "kontakt-title":"Kontakt aufnehmen",
-      "kontakt-intro":"Rufen Sie an oder schreiben Sie uns auf WhatsApp — wir antworten schnell, persönlich und in der Sprache, die Ihnen am liebsten ist.",
-      "call-title":"Jetzt anrufen","call-text":"Erreichbar im Büro und mobil — wählen Sie einfach die passende Nummer.",
-      "wa-title":"WhatsApp schreiben","wa-text":"Schnelle Antworten direkt aufs Handy — schreiben Sie uns einfach Ihr Anliegen.",
-      "wa-btn":"WhatsApp schreiben",
-      "kform-title":"Nachricht senden","kform-sub":"Füllen Sie das Formular aus — wir melden uns schnellstmöglich bei Ihnen.",
-      "kf-vorname":"Vorname","kf-name":"Nachname","kf-email":"E-Mail","kf-tel":"Telefonnummer","kf-anliegen":"Anliegen",
-      "kf-ph-vorname":"Ihr Vorname","kf-ph-name":"Ihr Nachname","kf-ph-email":"ihre@email.de","kf-ph-tel":"030 / 0176 …","kf-ph-anliegen":"Beschreiben Sie kurz Ihr Anliegen …",
-      "kf-submit":"Nachricht senden","kf-notice":"Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Bearbeitung Ihrer Anfrage zu.",
-      "kf-success":"✓ Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns bald bei Ihnen."
-    },
-    tr: {
-      "nav-start":"Ana Sayfa","nav-leistungen":"Hizmetler","nav-warum":"Neden Biz",
-      "nav-bewertungen":"Değerlendirmeler","nav-standort":"Konum","nav-kontakt":"İletişim",
-      "hero-eyebrow":"Muhasebe · Büro Hizmetleri · Vatandaşlık Hizmetleri",
-      "hero-h1":"Rakamlarınız. Başvurularınız.<br><span class='accent'>Emin Ellerde.</span>",
-      "hero-sub":"Golden Accounting, Berlin'deki şirketlere, serbest meslek sahiplerine ve özel müşterilere muhasebe, bordro, büro organizasyonu ve resmi işlemlerde kişisel olarak destek olmaktadır — Melisa Aylanc tarafından Almanca, Türkçe ve İngilizce olarak.",
-      "hero-btn-call":"Hemen Ara","hero-btn-wa":"WhatsApp Yaz",
-      "kontakt-title":"İletişime Geçin",
-      "kontakt-intro":"Bizi arayın veya WhatsApp'tan yazın — hızlı, kişisel ve tercih ettiğiniz dilde yanıt veriyoruz.",
-      "call-title":"Hemen Ara","call-text":"Ofiste ve cep telefonundan ulaşabilirsiniz — uygun numarayı seçin.",
-      "wa-title":"WhatsApp Yaz","wa-text":"Telefonunuza doğrudan hızlı yanıtlar — talebinizi bize yazın.",
-      "wa-btn":"WhatsApp Yaz",
-      "kform-title":"Mesaj Gönder","kform-sub":"Formu doldurun — en kısa sürede size geri döneceğiz.",
-      "kf-vorname":"Ad","kf-name":"Soyad","kf-email":"E-Posta","kf-tel":"Telefon Numarası","kf-anliegen":"Konu",
-      "kf-ph-vorname":"Adınız","kf-ph-name":"Soyadınız","kf-ph-email":"eposta@adresiniz.de","kf-ph-tel":"030 / 0176 …","kf-ph-anliegen":"Talebinizi kısaca açıklayın …",
-      "kf-submit":"Mesaj Gönder","kf-notice":"Göndererek verilerinizin talebinizin işlenmesi için kullanılmasını kabul etmiş olursunuz.",
-      "kf-success":"✓ Teşekkürler! Mesajınız gönderildi. Yakında size döneceğiz."
-    },
-    en: {
-      "nav-start":"Home","nav-leistungen":"Services","nav-warum":"Why Us",
-      "nav-bewertungen":"Reviews","nav-standort":"Location","nav-kontakt":"Contact",
-      "hero-eyebrow":"Accounting · Office Services · Citizen Services",
-      "hero-h1":"Your Numbers. Your Applications.<br><span class='accent'>In Good Hands.</span>",
-      "hero-sub":"Golden Accounting supports businesses, freelancers and private clients in Berlin with accounting, payroll, office organisation and official matters — personally managed by Melisa Aylanc in German, Turkish and English.",
-      "hero-btn-call":"Call Now","hero-btn-wa":"Write on WhatsApp",
-      "kontakt-title":"Get in Touch",
-      "kontakt-intro":"Call us or message us on WhatsApp — we respond quickly, personally and in your preferred language.",
-      "call-title":"Call Now","call-text":"Reachable at the office and on mobile — just choose the right number.",
-      "wa-title":"Write on WhatsApp","wa-text":"Quick replies straight to your phone — just send us your request.",
-      "wa-btn":"Write on WhatsApp",
-      "kform-title":"Send a Message","kform-sub":"Fill in the form — we'll get back to you as soon as possible.",
-      "kf-vorname":"First Name","kf-name":"Last Name","kf-email":"E-Mail","kf-tel":"Phone Number","kf-anliegen":"Your Request",
-      "kf-ph-vorname":"Your first name","kf-ph-name":"Your last name","kf-ph-email":"your@email.com","kf-ph-tel":"030 / 0176 …","kf-ph-anliegen":"Briefly describe your request …",
-      "kf-submit":"Send Message","kf-notice":"By submitting you agree to the processing of your data to handle your request.",
-      "kf-success":"✓ Thank you! Your message has been sent. We'll be in touch soon."
-    }
-  };
-
-  function applyLang(lang) {
-    var t = translations[lang];
-    if(!t) return;
-    // Nav
-    var navLinks = document.querySelectorAll('.nav-link[data-nav]');
-    var keys = ['nav-start','nav-leistungen','nav-warum','nav-bewertungen','nav-standort','nav-kontakt'];
-    navLinks.forEach(function(el,i){ if(keys[i]) el.textContent = t[keys[i]]; });
-    // Hero
-    var eyebrow = document.querySelector('.hero-eyebrow');
-    if(eyebrow) eyebrow.textContent = t['hero-eyebrow'];
-    var h1 = document.querySelector('.hero h1');
-    if(h1) h1.innerHTML = t['hero-h1'];
-    var heroSub = document.querySelector('.hero-sub');
-    if(heroSub) heroSub.textContent = t['hero-sub'];
-    var btnCall = document.querySelector('.hero-actions .btn-gold');
-    if(btnCall) btnCall.textContent = t['hero-btn-call'];
-    var btnWa = document.querySelector('.hero-actions .btn-outline');
-    if(btnWa) btnWa.textContent = t['hero-btn-wa'];
-    // Kontakt Section
-    var ktitle = document.querySelector('#kontakt .section-title');
-    if(ktitle) ktitle.textContent = t['kontakt-title'];
-    var kintro = document.querySelector('#kontakt .section-intro');
-    if(kintro) kintro.textContent = t['kontakt-intro'];
-    var cards = document.querySelectorAll('.kontakt-card');
-    if(cards[0]){
-      var h3 = cards[0].querySelector('h3'); if(h3) h3.textContent = t['call-title'];
-      var p = cards[0].querySelector('p.kontakt-text'); if(p) p.textContent = t['call-text'];
-    }
-    if(cards[1]){
-      var h3b = cards[1].querySelector('h3'); if(h3b) h3b.textContent = t['wa-title'];
-      var pb = cards[1].querySelector('p.kontakt-text'); if(pb) pb.textContent = t['wa-text'];
-      var wabtn = cards[1].querySelector('.btn'); if(wabtn) wabtn.textContent = t['wa-btn'];
-    }
-    // Formular
-    var fh3 = document.querySelector('.kform-wrap h3'); if(fh3) fh3.textContent = t['kform-title'];
-    var fsub = document.querySelector('.kform-wrap p.kform-sub'); if(fsub) fsub.textContent = t['kform-sub'];
-    var lbls = {'kf-vorname':'kf-vorname','kf-name':'kf-name','kf-email':'kf-email','kf-tel':'kf-tel','kf-anliegen':'kf-anliegen'};
-    Object.keys(lbls).forEach(function(id){
-      var lbl = document.querySelector('label[for="'+id+'"]');
-      if(lbl){ lbl.childNodes[0].textContent = t[id]+' '; }
-      var inp = document.getElementById(id);
-      if(inp) inp.placeholder = t['kf-ph-'+id.replace('kf-','')];
-    });
-    var submitBtn = document.querySelector('#kform button[type="submit"]');
-    if(submitBtn && !submitBtn.disabled) submitBtn.textContent = t['kf-submit'];
-    var notice = document.querySelector('.kform-notice'); if(notice) notice.textContent = t['kf-notice'];
-    var success = document.getElementById('kform-success'); if(success) success.textContent = t['kf-success'];
-    // HTML lang
-    document.documentElement.lang = lang;
-  }
-
-  document.querySelectorAll('.lang-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      applyLang(btn.getAttribute('data-lang'));
-    });
-  });
 
 })();
 </script>
