@@ -504,6 +504,14 @@ h1,h2,h3,p{margin:0;}
 .kform-notice{font-size:.78rem;opacity:.5;margin-top:10px;}
 .kform-success{display:none;padding:18px 22px;border:1px solid #5f8b5a;color:#a3c99e;font-size:.95rem;margin-top:18px;}
 @media(max-width:760px){.kform-wrap{padding:34px 24px;}.kform-row{grid-template-columns:1fr;}}
+/* ====================== SPRACHUMSCHALTER ====================== */
+.lang-switcher{display:flex;align-items:center;gap:6px;margin-left:18px;}
+.lang-btn{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:1.5px solid transparent;padding:5px 8px;cursor:pointer;transition:border-color .2s ease,background .2s ease;color:var(--off-white);}
+.lang-btn:hover{border-color:var(--gold);background:rgba(201,166,104,.08);}
+.lang-btn.active{border-color:var(--gold);background:rgba(201,166,104,.13);}
+.lang-btn .flag{font-size:1.4rem;line-height:1;}
+.lang-btn .lang-name{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+@media(max-width:880px){.lang-switcher{margin-left:0;margin-top:18px;}}
 </style>
 </head>
 <body>
@@ -532,6 +540,22 @@ h1,h2,h3,p{margin:0;}
       <li><a class="nav-link" data-nav href="#standort">Standort</a></li>
       <li><a class="nav-link nav-cta" data-nav href="#kontakt">Kontakt</a></li>
     </ul>
+
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn active" data-lang="de" aria-label="Deutsch">
+        <span class="flag">🇩🇪</span>
+        <span class="lang-name">DE</span>
+      </button>
+      <button class="lang-btn" data-lang="tr" aria-label="Türkçe">
+        <span class="flag">🇹🇷</span>
+        <span class="lang-name">TR</span>
+      </button>
+      <button class="lang-btn" data-lang="en" aria-label="English">
+        <span class="flag">🇬🇧</span>
+        <span class="lang-name">EN</span>
+      </button>
+    </div>
+
   </div>
 </header>
 
@@ -1182,6 +1206,123 @@ h1,h2,h3,p{margin:0;}
       });
     });
   }
+
+  /* ---------- Sprachumschalter ---------- */
+  var translations = {
+    de: {
+      "nav-start":"Startseite","nav-leistungen":"Leistungen","nav-warum":"Warum wir",
+      "nav-bewertungen":"Bewertungen","nav-standort":"Standort","nav-kontakt":"Kontakt",
+      "hero-eyebrow":"Buchhaltung · Büroservice · Bürgerservice",
+      "hero-h1":"Ihre Zahlen. Ihre Anträge.<br><span class='accent'>In guten Händen.</span>",
+      "hero-sub":"Golden Accounting begleitet Unternehmen, Selbstständige, Freiberufler und Privatkunden in Berlin durch Buchhaltung, Lohnabrechnung, Büroorganisation und Behördenangelegenheiten — persönlich betreut von Melisa Aylanc, auf Deutsch, Türkisch und Englisch.",
+      "hero-btn-call":"Jetzt anrufen","hero-btn-wa":"WhatsApp schreiben",
+      "kontakt-title":"Kontakt aufnehmen",
+      "kontakt-intro":"Rufen Sie an oder schreiben Sie uns auf WhatsApp — wir antworten schnell, persönlich und in der Sprache, die Ihnen am liebsten ist.",
+      "call-title":"Jetzt anrufen","call-text":"Erreichbar im Büro und mobil — wählen Sie einfach die passende Nummer.",
+      "wa-title":"WhatsApp schreiben","wa-text":"Schnelle Antworten direkt aufs Handy — schreiben Sie uns einfach Ihr Anliegen.",
+      "wa-btn":"WhatsApp schreiben",
+      "kform-title":"Nachricht senden","kform-sub":"Füllen Sie das Formular aus — wir melden uns schnellstmöglich bei Ihnen.",
+      "kf-vorname":"Vorname","kf-name":"Nachname","kf-email":"E-Mail","kf-tel":"Telefonnummer","kf-anliegen":"Anliegen",
+      "kf-ph-vorname":"Ihr Vorname","kf-ph-name":"Ihr Nachname","kf-ph-email":"ihre@email.de","kf-ph-tel":"030 / 0176 …","kf-ph-anliegen":"Beschreiben Sie kurz Ihr Anliegen …",
+      "kf-submit":"Nachricht senden","kf-notice":"Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten zur Bearbeitung Ihrer Anfrage zu.",
+      "kf-success":"✓ Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns bald bei Ihnen."
+    },
+    tr: {
+      "nav-start":"Ana Sayfa","nav-leistungen":"Hizmetler","nav-warum":"Neden Biz",
+      "nav-bewertungen":"Değerlendirmeler","nav-standort":"Konum","nav-kontakt":"İletişim",
+      "hero-eyebrow":"Muhasebe · Büro Hizmetleri · Vatandaşlık Hizmetleri",
+      "hero-h1":"Rakamlarınız. Başvurularınız.<br><span class='accent'>Emin Ellerde.</span>",
+      "hero-sub":"Golden Accounting, Berlin'deki şirketlere, serbest meslek sahiplerine ve özel müşterilere muhasebe, bordro, büro organizasyonu ve resmi işlemlerde kişisel olarak destek olmaktadır — Melisa Aylanc tarafından Almanca, Türkçe ve İngilizce olarak.",
+      "hero-btn-call":"Hemen Ara","hero-btn-wa":"WhatsApp Yaz",
+      "kontakt-title":"İletişime Geçin",
+      "kontakt-intro":"Bizi arayın veya WhatsApp'tan yazın — hızlı, kişisel ve tercih ettiğiniz dilde yanıt veriyoruz.",
+      "call-title":"Hemen Ara","call-text":"Ofiste ve cep telefonundan ulaşabilirsiniz — uygun numarayı seçin.",
+      "wa-title":"WhatsApp Yaz","wa-text":"Telefonunuza doğrudan hızlı yanıtlar — talebinizi bize yazın.",
+      "wa-btn":"WhatsApp Yaz",
+      "kform-title":"Mesaj Gönder","kform-sub":"Formu doldurun — en kısa sürede size geri döneceğiz.",
+      "kf-vorname":"Ad","kf-name":"Soyad","kf-email":"E-Posta","kf-tel":"Telefon Numarası","kf-anliegen":"Konu",
+      "kf-ph-vorname":"Adınız","kf-ph-name":"Soyadınız","kf-ph-email":"eposta@adresiniz.de","kf-ph-tel":"030 / 0176 …","kf-ph-anliegen":"Talebinizi kısaca açıklayın …",
+      "kf-submit":"Mesaj Gönder","kf-notice":"Göndererek verilerinizin talebinizin işlenmesi için kullanılmasını kabul etmiş olursunuz.",
+      "kf-success":"✓ Teşekkürler! Mesajınız gönderildi. Yakında size döneceğiz."
+    },
+    en: {
+      "nav-start":"Home","nav-leistungen":"Services","nav-warum":"Why Us",
+      "nav-bewertungen":"Reviews","nav-standort":"Location","nav-kontakt":"Contact",
+      "hero-eyebrow":"Accounting · Office Services · Citizen Services",
+      "hero-h1":"Your Numbers. Your Applications.<br><span class='accent'>In Good Hands.</span>",
+      "hero-sub":"Golden Accounting supports businesses, freelancers and private clients in Berlin with accounting, payroll, office organisation and official matters — personally managed by Melisa Aylanc in German, Turkish and English.",
+      "hero-btn-call":"Call Now","hero-btn-wa":"Write on WhatsApp",
+      "kontakt-title":"Get in Touch",
+      "kontakt-intro":"Call us or message us on WhatsApp — we respond quickly, personally and in your preferred language.",
+      "call-title":"Call Now","call-text":"Reachable at the office and on mobile — just choose the right number.",
+      "wa-title":"Write on WhatsApp","wa-text":"Quick replies straight to your phone — just send us your request.",
+      "wa-btn":"Write on WhatsApp",
+      "kform-title":"Send a Message","kform-sub":"Fill in the form — we'll get back to you as soon as possible.",
+      "kf-vorname":"First Name","kf-name":"Last Name","kf-email":"E-Mail","kf-tel":"Phone Number","kf-anliegen":"Your Request",
+      "kf-ph-vorname":"Your first name","kf-ph-name":"Your last name","kf-ph-email":"your@email.com","kf-ph-tel":"030 / 0176 …","kf-ph-anliegen":"Briefly describe your request …",
+      "kf-submit":"Send Message","kf-notice":"By submitting you agree to the processing of your data to handle your request.",
+      "kf-success":"✓ Thank you! Your message has been sent. We'll be in touch soon."
+    }
+  };
+
+  function applyLang(lang) {
+    var t = translations[lang];
+    if(!t) return;
+    // Nav
+    var navLinks = document.querySelectorAll('.nav-link[data-nav]');
+    var keys = ['nav-start','nav-leistungen','nav-warum','nav-bewertungen','nav-standort','nav-kontakt'];
+    navLinks.forEach(function(el,i){ if(keys[i]) el.textContent = t[keys[i]]; });
+    // Hero
+    var eyebrow = document.querySelector('.hero-eyebrow');
+    if(eyebrow) eyebrow.textContent = t['hero-eyebrow'];
+    var h1 = document.querySelector('.hero h1');
+    if(h1) h1.innerHTML = t['hero-h1'];
+    var heroSub = document.querySelector('.hero-sub');
+    if(heroSub) heroSub.textContent = t['hero-sub'];
+    var btnCall = document.querySelector('.hero-actions .btn-gold');
+    if(btnCall) btnCall.textContent = t['hero-btn-call'];
+    var btnWa = document.querySelector('.hero-actions .btn-outline');
+    if(btnWa) btnWa.textContent = t['hero-btn-wa'];
+    // Kontakt Section
+    var ktitle = document.querySelector('#kontakt .section-title');
+    if(ktitle) ktitle.textContent = t['kontakt-title'];
+    var kintro = document.querySelector('#kontakt .section-intro');
+    if(kintro) kintro.textContent = t['kontakt-intro'];
+    var cards = document.querySelectorAll('.kontakt-card');
+    if(cards[0]){
+      var h3 = cards[0].querySelector('h3'); if(h3) h3.textContent = t['call-title'];
+      var p = cards[0].querySelector('p.kontakt-text'); if(p) p.textContent = t['call-text'];
+    }
+    if(cards[1]){
+      var h3b = cards[1].querySelector('h3'); if(h3b) h3b.textContent = t['wa-title'];
+      var pb = cards[1].querySelector('p.kontakt-text'); if(pb) pb.textContent = t['wa-text'];
+      var wabtn = cards[1].querySelector('.btn'); if(wabtn) wabtn.textContent = t['wa-btn'];
+    }
+    // Formular
+    var fh3 = document.querySelector('.kform-wrap h3'); if(fh3) fh3.textContent = t['kform-title'];
+    var fsub = document.querySelector('.kform-wrap p.kform-sub'); if(fsub) fsub.textContent = t['kform-sub'];
+    var lbls = {'kf-vorname':'kf-vorname','kf-name':'kf-name','kf-email':'kf-email','kf-tel':'kf-tel','kf-anliegen':'kf-anliegen'};
+    Object.keys(lbls).forEach(function(id){
+      var lbl = document.querySelector('label[for="'+id+'"]');
+      if(lbl){ lbl.childNodes[0].textContent = t[id]+' '; }
+      var inp = document.getElementById(id);
+      if(inp) inp.placeholder = t['kf-ph-'+id.replace('kf-','')];
+    });
+    var submitBtn = document.querySelector('#kform button[type="submit"]');
+    if(submitBtn && !submitBtn.disabled) submitBtn.textContent = t['kf-submit'];
+    var notice = document.querySelector('.kform-notice'); if(notice) notice.textContent = t['kf-notice'];
+    var success = document.getElementById('kform-success'); if(success) success.textContent = t['kf-success'];
+    // HTML lang
+    document.documentElement.lang = lang;
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyLang(btn.getAttribute('data-lang'));
+    });
+  });
 
 })();
 </script>
